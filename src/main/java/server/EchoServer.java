@@ -1,13 +1,16 @@
 package server;
 
+import message.Connection;
+import message.Listening;
+
 import java.net.*;
 import java.io.*;
 
 
 public class EchoServer {
-
     public static ServerSocket serverSocket = null;
     public static Socket clientSocket = null;
+    public static final int PORT = 1234;
     public static void start() throws IOException {
 
         openConnection();
@@ -24,10 +27,10 @@ public class EchoServer {
     public static void openConnection() throws IOException {
 
         try {
-            serverSocket = new ServerSocket(1234);
-            System.out.println("[+] Listening for connection on port number 1234...");
+            serverSocket = new ServerSocket(PORT);
+            System.out.println(Listening.listeningForConnection());
         } catch(IOException ie){
-            System.out.println(("[-] Cannot listen on port number 1234"));
+            System.out.println(Listening.cannotListenForConnection());
             System.exit(1);
         }
     }
@@ -35,15 +38,15 @@ public class EchoServer {
     public static void connectClientSocket() throws IOException {
         try {
             clientSocket = serverSocket.accept();
-            System.out.println("[+] Connection is successful");
+            System.out.println(Connection.successfulConnection());
         } catch(IOException ie) {
-            System.out.println("[-] Accept failed");
+            System.out.println(Connection.failedConnection());
             System.exit(1);
         }
     }
 
     public static void ioStream(PrintWriter serverOutput, BufferedReader clientInput) throws IOException {
-        System.out.println("[+] Listening for an input");
+        System.out.println(Listening.listeningForClientInput());
 
         String clientInputLine;
 
