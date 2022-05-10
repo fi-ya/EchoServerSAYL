@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="09b4f137-4a58-406b-8a35-01bef536cb3d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/EchoServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/server/EchoServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/server/EchoServerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,8 +32,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -72,7 +73,7 @@
       <recent name="server" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.EchoServerTest.testServerConnection">
+  <component name="RunManager" selected="Gradle.EchoServerTest.testEchoServerExists">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="EchoServerSAYL.main" />
@@ -92,6 +93,29 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="EchoServerTest.testEchoServerExists" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;server.EchoServerTest.testEchoServerExists&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="EchoServerTest.testServerConnection (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -116,7 +140,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="EchoServerTest.testServerConnection" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="EchoServerTest.testServerConnection (2)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -141,7 +165,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.EchoServerTest.testServerConnection" />
+        <item itemvalue="Gradle.EchoServerTest.testEchoServerExists" />
+        <item itemvalue="Gradle.EchoServerTest.testServerConnection (2)" />
         <item itemvalue="Gradle.EchoServerTest.testServerConnection (1)" />
         <item itemvalue="Application.App" />
         <item itemvalue="Application.Main" />
