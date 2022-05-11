@@ -2,6 +2,7 @@ package iostream;
 
 import message.Listening;
 
+import java.net.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,7 +14,6 @@ public class IOSocketHandler {
 
         PrintWriter serverOutput = new PrintWriter(clientSocket.getOutputStream(), true);
         BufferedReader clientInput = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-        ioStream(serverOutput, clientInput);
 
         System.out.println(Listening.listeningForClientInput());
 

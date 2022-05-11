@@ -1,5 +1,6 @@
 package server;
 
+import iostream.IOSocketHandler;
 import message.Connection;
 import message.Listening;
 
@@ -15,7 +16,7 @@ public class EchoServer {
 
         openServerSocketConnection(PORT);
         connectClientSocket(serverSocket);
-        IOSocketHandler.ioStream()
+        IOSocketHandler.ioStream(clientSocket);
 
 //        PrintWriter serverOutput = new PrintWriter(clientSocket.getOutputStream(), true);
 //        BufferedReader clientInput = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
