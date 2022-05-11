@@ -10,18 +10,17 @@ import java.io.PrintWriter;
 
 public class IOSocketHandler {
 
-    public static PrintWriter createClientInputReader(Socket clientSocket) throws IOException {
-        return new PrintWriter(clientSocket.getOutputStream(), true);
-    }
 
-    public static BufferedReader createClientOutputWriter(Socket clientSocket) throws IOException {
+    public static BufferedReader createClientInputReader(Socket clientSocket) throws IOException {
         return new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+    }
+    public static PrintWriter createClientOutputWriter(Socket clientSocket) throws IOException {
+        return new PrintWriter(clientSocket.getOutputStream(), true);
     }
     public static void ioStream(Socket clientSocket) throws IOException {
 
-        PrintWriter serverOutput = createClientInputReader(clientSocket);
-
-        BufferedReader clientInput = createClientOutputWriter(clientSocket);
+        BufferedReader clientInput = createClientInputReader(clientSocket);
+        PrintWriter serverOutput = createClientOutputWriter(clientSocket);
 
         System.out.println(Listening.listeningForClientInput());
 

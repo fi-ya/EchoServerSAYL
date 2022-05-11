@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09b4f137-4a58-406b-8a35-01bef536cb3d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/iostream/IOSocketHandlerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/iostream/IOSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/iostream/IOSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/EchoServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/iostream/IOSocketHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/iostream/IOSocketHandlerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/server/EchoServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/server/EchoServerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

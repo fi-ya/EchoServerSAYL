@@ -26,7 +26,3 @@ class EchoServerTest {
         assertNotNull(EchoServer.connectClientSocket(mockServerSocket));
     }
 }
-//    @Test public void openConnectionHasMessage() {
-//        EchoServer mockEchoServer = mock(EchoServer.class);
-//        assertNotNull("[+] Listening for connection on port 1234", mockEchoServer.openConnection());
-//    }
