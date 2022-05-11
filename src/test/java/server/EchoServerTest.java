@@ -12,7 +12,7 @@ import static org.mockito.Mockito.*;
 class EchoServerTest {
 
     @Test
-    public void testServerSocketWithPort() throws IOException {
+    public void testServerSocketOpensConnectionToPort() throws IOException {
         final int mockPort = 5678;
         ServerSocket mockServerSocket = EchoServer.openServerSocketConnection(mockPort);
         assertEquals(mockServerSocket.getLocalPort(), mockPort);

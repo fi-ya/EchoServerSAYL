@@ -25,13 +25,11 @@ public class EchoServer {
     }
 
     public static ServerSocket openServerSocketConnection(int PORT) throws IOException {
-        int port = PORT;
-
         try {
-            serverSocket = new ServerSocket(port);
-            System.out.println(Listening.listeningForConnection(Integer.toString(port)));
+            serverSocket = new ServerSocket(PORT);
+            System.out.println(Listening.listeningForConnection(Integer.toString(PORT)));
         } catch(IOException ie){
-            System.out.println(Listening.cannotListenForConnection(Integer.toString(port)));
+            System.out.println(Listening.cannotListenForConnection(Integer.toString(PORT)));
             System.exit(1);
         }
         return serverSocket;
