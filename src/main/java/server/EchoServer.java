@@ -18,10 +18,6 @@ public class EchoServer {
         connectClientSocket(serverSocket);
         IOSocketHandler.ioStream(clientSocket);
 
-//        PrintWriter serverOutput = new PrintWriter(clientSocket.getOutputStream(), true);
-//        BufferedReader clientInput = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-//        ioStream(serverOutput, clientInput);
-
         clientSocket.close();
         serverSocket.close();
     }
@@ -47,22 +43,4 @@ public class EchoServer {
         }
         return clientSocket;
     }
-
-//    public static void ioStream(PrintWriter serverOutput, BufferedReader clientInput) throws IOException {
-//        System.out.println(Listening.listeningForClientInput());
-//
-//        String clientInputLine;
-//
-//        while((clientInputLine = clientInput.readLine()) != null) {
-//            System.out.println("Server will echo this back to the client: " + clientInputLine);
-//            serverOutput.println(clientInputLine);
-//
-//            if (clientInputLine.equals(("bye"))) {
-//                break;
-//            }
-//        }
-//
-//        serverOutput.close();
-//        clientInput.close();
-//    }
-    }
+}
