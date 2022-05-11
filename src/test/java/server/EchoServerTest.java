@@ -12,15 +12,21 @@ import static org.mockito.Mockito.*;
 class EchoServerTest {
 
     @Test
-    public void testEchoServerExists() throws IOException {
-
-        EchoServer echoServer = mock(EchoServer.class);
-//        Mockito.verify(EchoServer.openConnection(), Mockito.times(1));
-        assertNotNull(echoServer.openConnection());
+    public void testServerSocketWithPort() throws IOException {
+        final int mockPort = 5678;
+        ServerSocket mockServerSocket = EchoServer.openServerSocketConnection(mockPort);
+        assertEquals(mockServerSocket.getLocalPort(), mockPort);
     }
 
-    @Test public void openConnectionHasMessage() {
-        EchoServer mockEchoServer = mock(EchoServer.class);
-        assertNotNull("[+] Listening for connection on port 1234", mockEchoServer.openConnection());
+    @Test
+    public void testClientSocketConnectsToServerSocket() throws IOException {
+        ServerSocket mockServerSocket = mock(ServerSocket.class);
+        when(mockServerSocket.accept()).thenReturn(new Socket());
+
+        assertNotNull(EchoServer.connectClientSocket(mockServerSocket));
     }
 }
+//    @Test public void openConnectionHasMessage() {
+//        EchoServer mockEchoServer = mock(EchoServer.class);
+//        assertNotNull("[+] Listening for connection on port 1234", mockEchoServer.openConnection());
+//    }

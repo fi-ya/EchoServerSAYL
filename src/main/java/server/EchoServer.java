@@ -13,8 +13,8 @@ public class EchoServer {
     public static final int PORT = 1234;
     public static void start() throws IOException {
 
-        openConnection();
-        connectClientSocket();
+        openServerSocketConnection(PORT);
+        connectClientSocket(serverSocket);
 
         PrintWriter serverOutput = new PrintWriter(clientSocket.getOutputStream(), true);
         BufferedReader clientInput = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
@@ -24,18 +24,20 @@ public class EchoServer {
         serverSocket.close();
     }
 
-    public static void openConnection() throws IOException {
+    public static ServerSocket openServerSocketConnection(int PORT) throws IOException {
+        int port = PORT;
 
         try {
-            serverSocket = new ServerSocket(PORT);
-            System.out.println(Listening.listeningForConnection(Integer.toString(PORT)));
+            serverSocket = new ServerSocket(port);
+            System.out.println(Listening.listeningForConnection(Integer.toString(port)));
         } catch(IOException ie){
-            System.out.println(Listening.cannotListenForConnection(Integer.toString(PORT)));
+            System.out.println(Listening.cannotListenForConnection(Integer.toString(port)));
             System.exit(1);
         }
+        return serverSocket;
     }
 
-    public static void connectClientSocket() throws IOException {
+    public static Socket connectClientSocket(ServerSocket serverSocket) throws IOException {
         try {
             clientSocket = serverSocket.accept();
             System.out.println(Connection.successfulConnection());
@@ -43,6 +45,7 @@ public class EchoServer {
             System.out.println(Connection.failedConnection());
             System.exit(1);
         }
+        return clientSocket;
     }
 
     public static void ioStream(PrintWriter serverOutput, BufferedReader clientInput) throws IOException {
@@ -63,4 +66,3 @@ public class EchoServer {
         clientInput.close();
     }
     }
-
