@@ -28,9 +28,9 @@ public class EchoServer {
 
         try {
             serverSocket = new ServerSocket(PORT);
-            System.out.println(Listening.listeningForConnection());
+            System.out.println(Listening.listeningForConnection(Integer.toString(PORT)));
         } catch(IOException ie){
-            System.out.println(Listening.cannotListenForConnection());
+            System.out.println(Listening.cannotListenForConnection(Integer.toString(PORT)));
             System.exit(1);
         }
     }
