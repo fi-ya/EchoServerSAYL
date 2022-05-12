@@ -7,6 +7,7 @@
     <list default="true" id="09b4f137-4a58-406b-8a35-01bef536cb3d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/iostream/IOSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/iostream/IOSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/EchoServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/iostream/IOSocketHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/iostream/IOSocketHandlerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/server/EchoServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/server/EchoServerTest.java" afterDir="false" />
     </list>
@@ -90,7 +91,7 @@
       <recent name="server" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.IOSocketHandlerTest.testClientSocketInputCreated">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="EchoServerSAYL.main" />

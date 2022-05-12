@@ -43,4 +43,9 @@ public class IOSocketHandlerTest {
 
         assertNotNull(IOSocketHandler.createClientOutputWriter(mockClientSocket));
     }
+
+    @Test
+    public void testListeningForConnectionMessagePrinted() throws IOException{
+        
+    }
 }

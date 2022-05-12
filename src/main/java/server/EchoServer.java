@@ -16,7 +16,7 @@ public class EchoServer {
 
         openServerSocketConnection(PORT);
         connectClientSocket(serverSocket);
-        IOSocketHandler.ioStream(clientSocket);
+        IOSocketHandler.createClientSocketInputOutputStream(clientSocket);
 
         clientSocket.close();
         serverSocket.close();

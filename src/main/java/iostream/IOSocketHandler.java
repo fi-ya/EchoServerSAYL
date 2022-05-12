@@ -1,5 +1,6 @@
 package iostream;
 
+import message.Connection;
 import message.Listening;
 
 import java.net.*;
@@ -16,13 +17,21 @@ public class IOSocketHandler {
     public static PrintWriter createClientOutputWriter(Socket clientSocket) throws IOException {
         return new PrintWriter(clientSocket.getOutputStream(), true);
     }
-    public static void ioStream(Socket clientSocket) throws IOException {
+    
+    public static void createClientSocketInputOutputStream(Socket clientSocket) throws IOException{
 
-        BufferedReader clientInput = createClientInputReader(clientSocket);
-        PrintWriter serverOutput = createClientOutputWriter(clientSocket);
+        try {
+            BufferedReader clientInput = createClientInputReader(clientSocket);
+            PrintWriter serverOutput = createClientOutputWriter(clientSocket);
+            System.out.println(Listening.listeningForClientInput());
+            clientInputOutputLoop(clientInput, serverOutput);
 
-        System.out.println(Listening.listeningForClientInput());
+        } catch(IOException ie){
+            System.out.println("Input & Output stream not created");
+        }
+    }
 
+    public static void clientInputOutputLoop(BufferedReader clientInput, PrintWriter serverOutput) throws IOException {
         String clientInputLine;
 
         while((clientInputLine = clientInput.readLine()) != null) {

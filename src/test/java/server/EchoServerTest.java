@@ -2,6 +2,8 @@ package server;
 
 import java.io.*;
 import java.net.*;
+
+import iostream.IOSocketHandler;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,13 +27,21 @@ class EchoServerTest {
     }
 
     @Test
-    public void testOutputStreamPrintsConnectionSuccessfulMessage() throws IOException{
+    public void testClientSocketInputOutputStreamCreated() throws IOException {
         ServerSocket mockServerSocket = mock(ServerSocket.class);
-        when(mockServerSocket.accept()).thenReturn(new Socket());
-        EchoServer.connectClientSocket(mockServerSocket);
+        Socket mockClientSocket = mock(Socket.class);
+//        when(mockServerSocket.accept()).thenReturn(new Socket());
 
-        ByteArrayOutputStream mockOutput = new ByteArrayOutputStream();
-
-        assertArrayEquals("[+] Connection successful".getBytes(), mockOutput.toByteArray());
+        assertEquals(IOSocketHandler.createClientSocketInputOutputStream(mockClientSocket), true);
     }
+//    @Test
+//    public void testOutputStreamPrintsConnectionSuccessfulMessage() throws IOException{
+//        ServerSocket mockServerSocket = mock(ServerSocket.class);
+//        when(mockServerSocket.accept()).thenReturn(new Socket());
+//        EchoServer.connectClientSocket(mockServerSocket);
+//
+//        ByteArrayOutputStream mockOutput = new ByteArrayOutputStream();
+//
+//        assertArrayEquals("[+] Connection successful".getBytes(), mockOutput.toByteArray());
+//    }
 }
