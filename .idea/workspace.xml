@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="09b4f137-4a58-406b-8a35-01bef536cb3d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/EchoServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/iostream/IOSocketHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/iostream/IOSocketHandlerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/server/EchoServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/server/EchoServerTest.java" afterDir="false" />
@@ -91,7 +90,7 @@
       <recent name="server" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.IOSocketHandlerTest.inputOutputStream">
+  <component name="RunManager" selected="Gradle.EchoServerTest.testClientSocketConnectsToServerSocket (1)">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="EchoServerSAYL.main" />
@@ -99,7 +98,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EchoServerTest.testClientSocketConnectsToServerSocket" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="EchoServerTest.testClientSocketConnectsToServerSocket (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -193,9 +192,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.EchoServerTest.testClientSocketConnectsToServerSocket (1)" />
         <item itemvalue="Gradle.IOSocketHandlerTest.inputOutputStream" />
         <item itemvalue="Gradle.EchoServerTest.testServerSocketOpensConnectionToPort" />
-        <item itemvalue="Gradle.EchoServerTest.testClientSocketConnectsToServerSocket" />
         <item itemvalue="Application.App" />
         <item itemvalue="Gradle.IOSocketHandlerTest.testSocketInputGetsCreated (1)" />
       </list>

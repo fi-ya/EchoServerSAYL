@@ -35,9 +35,6 @@ public class EchoServer {
     public ServerSocket getServerSocket() {
         return serverSocket;
     }
-    public Socket getClientSocket() {
-        return clientSocket;
-    }
 
     public void connectClientSocket(ServerSocket serverSocket) throws IOException {
         try {
@@ -48,4 +45,9 @@ public class EchoServer {
             System.exit(1);
         }
     }
+    public Socket getClientSocket() {
+        return clientSocket;
+    }
 }
+
+

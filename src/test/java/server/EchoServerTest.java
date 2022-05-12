@@ -21,15 +21,16 @@ class EchoServerTest {
         assertNotNull(serverSocketNew);
     }
 
-//    @Test
-//    public void testClientSocketConnectsToServerSocket() throws IOException {
-//        var echoServer = new EchoServer();
-//        ServerSocket mockServerSocket = mock(ServerSocket.class);
-//        Socket mockClientSocket = mock(Socket.class);
-//
-//        when(mockServerSocket.accept()).thenReturn(mockClientSocket);
-//
-//        Socket result = echoServer.connectClientSocket(mockServerSocket);
-//        assertEquals(mockClientSocket, result);
-//    }
+    @Test
+    public void testClientSocketConnectsToServerSocket() throws IOException {
+        var echoServer = new EchoServer();
+        ServerSocket mockServerSocket = mock(ServerSocket.class);
+        Socket mockClientSocket = mock(Socket.class);
+
+        when(mockServerSocket.accept()).thenReturn(mockClientSocket);
+
+        echoServer.connectClientSocket(mockServerSocket);
+        Socket result = echoServer.getClientSocket();
+        assertEquals(mockClientSocket, result);
+    }
 }
