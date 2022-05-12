@@ -12,7 +12,7 @@ import org.mockito.internal.stubbing.answers.ReturnsElementsOf;
 
 public class IOSocketHandlerTest {
     @Test
-    public void inputOutputStream() throws IOException {
+    public void testInputOutputStream() throws IOException {
        BufferedReader mockClientInput = mock(BufferedReader.class);
        PrintWriter mockServerOutput = mock(PrintWriter.class);
        when(mockClientInput.readLine()).thenAnswer(new ReturnsElementsOf(List.of("hello", "bye")));
