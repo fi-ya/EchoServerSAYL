@@ -9,10 +9,10 @@ import java.io.*;
 
 
 public class EchoServer {
-    public static ServerSocket serverSocket = null;
-    public static Socket clientSocket = null;
+    public static ServerSocket serverSocket;
+    public static Socket clientSocket;
     public static final int PORT = 1234;
-    public static void start() throws IOException {
+    public void start() throws IOException {
 
         openServerSocketConnection(PORT);
         connectClientSocket(serverSocket);
@@ -22,7 +22,7 @@ public class EchoServer {
         serverSocket.close();
     }
 
-    public static ServerSocket openServerSocketConnection(int PORT) throws IOException {
+    public void openServerSocketConnection(int PORT) throws IOException {
         try {
             serverSocket = new ServerSocket(PORT);
             System.out.println(Listening.listeningForConnection(Integer.toString(PORT)));
@@ -30,10 +30,16 @@ public class EchoServer {
             System.out.println(Listening.cannotListenForConnection(Integer.toString(PORT)));
             System.exit(1);
         }
-        return serverSocket;
     }
 
-    public static Socket connectClientSocket(ServerSocket serverSocket) throws IOException {
+    public ServerSocket getServerSocket() {
+        return serverSocket;
+    }
+    public Socket getClientSocket() {
+        return clientSocket;
+    }
+
+    public void connectClientSocket(ServerSocket serverSocket) throws IOException {
         try {
             clientSocket = serverSocket.accept();
             System.out.println(Connection.successfulConnection());
@@ -41,6 +47,5 @@ public class EchoServer {
             System.out.println(Connection.failedConnection());
             System.exit(1);
         }
-        return clientSocket;
     }
 }

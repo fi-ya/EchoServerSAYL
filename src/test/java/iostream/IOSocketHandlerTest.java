@@ -1,11 +1,13 @@
 package iostream;
 
-import server.EchoServer;
+import org.mockito.internal.stubbing.answers.ReturnsElementsOf;
 
 import java.io.*;
 import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.List;
 
 import org.mockito.Mock;
 import static org.mockito.Mockito.*;
@@ -14,16 +16,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class IOSocketHandlerTest {
     @Test
-    public void testSocketInputGetsCreated() throws IOException {
-        final int mockPort = 5678;
-        ServerSocket mockServerSocket = EchoServer.openServerSocketConnection(mockPort);
-        Socket mockClientSocket = mockServerSocket.accept();
+    public void inputOutputStream() throws IOException {
+       BufferedReader mockClientInput = mock(BufferedReader.class);
+       PrintWriter mockServerOutput = mock(PrintWriter.class);
+       when(mockClientInput.readLine()).thenAnswer(new ReturnsElementsOf(List.of("hello", "bye")));
 
-        IOSocketHandler.createClientSocketInputOutputStream(mockClientSocket);
+       IOSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput);
 
-//        assertTrue(IOSocketHandler.createClientSocketInputOutputStream(mockClientSocket).toString().contains("[+] Listening for client server input"));
-        assertNotNull(IOSocketHandler.createClientInputReader(mockClientSocket));
-
+       verify(mockServerOutput).println("Server response: hello");
     }
 
 }
