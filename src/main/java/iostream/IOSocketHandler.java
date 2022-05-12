@@ -10,7 +10,6 @@ import java.io.PrintWriter;
 
 public class IOSocketHandler {
 
-
     public static BufferedReader createClientInputReader(Socket clientSocket) throws IOException {
         return new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
     }
