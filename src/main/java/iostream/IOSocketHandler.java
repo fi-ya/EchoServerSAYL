@@ -27,13 +27,12 @@ public class IOSocketHandler {
 
         while((clientInputLine = clientInput.readLine()) != null) {
             System.out.println("Server will echo this back to the client: " + clientInputLine);
-            serverOutput.println(clientInputLine);
+            serverOutput.println("Server response: " + clientInputLine);
 
             if (clientInputLine.equals(("bye"))) {
                 break;
             }
         }
-
         serverOutput.close();
         clientInput.close();
     }

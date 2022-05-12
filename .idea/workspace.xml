@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="09b4f137-4a58-406b-8a35-01bef536cb3d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/iostream/IOSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/iostream/IOSocketHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/iostream/IOSocketHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/iostream/IOSocketHandlerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/server/EchoServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/server/EchoServerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +32,11 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="EchoServerSAYL" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="EchoServerSAYL" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
               </path>
             </expand>
             <select />
@@ -91,7 +98,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EchoServerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="EchoServerTest.testClientSocketConnectsToServerSocket" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -104,7 +111,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;server.EchoServerTest&quot;" />
+            <option value="&quot;server.EchoServerTest.testClientSocketConnectsToServerSocket&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -114,7 +121,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="EchoServerTest.testServerSocketOpensConnectionToPort" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="EchoServerTest.testOutputStreamPrintsConnectionSuccessfulMessage" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -127,7 +134,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;server.EchoServerTest.testServerSocketOpensConnectionToPort&quot;" />
+            <option value="&quot;server.EchoServerTest.testOutputStreamPrintsConnectionSuccessfulMessage&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -186,10 +193,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.IOSocketHandlerTest.testClientSocketInputCreated" />
+        <item itemvalue="Gradle.EchoServerTest.testOutputStreamPrintsConnectionSuccessfulMessage" />
+        <item itemvalue="Gradle.EchoServerTest.testClientSocketConnectsToServerSocket" />
         <item itemvalue="Gradle.IOSocketHandlerTest" />
         <item itemvalue="Application.App" />
-        <item itemvalue="Gradle.EchoServerTest" />
-        <item itemvalue="Gradle.EchoServerTest.testServerSocketOpensConnectionToPort" />
       </list>
     </recent_temporary>
   </component>

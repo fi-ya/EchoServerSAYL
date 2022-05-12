@@ -25,12 +25,14 @@ public class IOSocketHandlerTest {
 
     @Test
     public void testClientSocketInputCreated() throws IOException {
-        final int mockPort = 5678;
-        ServerSocket mockServerSocket = EchoServer.openServerSocketConnection(mockPort);
-        Socket mockClientSocket = mockServerSocket.accept();
-//        when(mockClientSocket.getInputStream()).thenReturn(inputStream);
+//        final int mockPort = 5678;
+//        ServerSocket mockServerSocket = EchoServer.openServerSocketConnection(mockPort);
+//        Socket mockClientSocket = mockServerSocket.accept();
+////        when(mockClientSocket.getInputStream()).thenReturn(inputStream);
+//        assertNotNull(IOSocketHandler.createClientInputReader(mockClientSocket));
 
-        assertNotNull(IOSocketHandler.createClientInputReader(mockClientSocket));
+        when(clientSocket.getInputStream()).thenReturn(inputStream);
+        assertNotNull(IOSocketHandler.createClientInputReader(clientSocket));
     }
     @Test
     public void testClientSocketOutputCreated() throws IOException {

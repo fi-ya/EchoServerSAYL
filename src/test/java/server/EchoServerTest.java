@@ -23,4 +23,15 @@ class EchoServerTest {
 
         assertNotNull(EchoServer.connectClientSocket(mockServerSocket));
     }
+
+    @Test
+    public void testOutputStreamPrintsConnectionSuccessfulMessage() throws IOException{
+        ServerSocket mockServerSocket = mock(ServerSocket.class);
+        when(mockServerSocket.accept()).thenReturn(new Socket());
+        EchoServer.connectClientSocket(mockServerSocket);
+
+        ByteArrayOutputStream mockOutput = new ByteArrayOutputStream();
+
+        assertArrayEquals("[+] Connection successful".getBytes(), mockOutput.toByteArray());
+    }
 }
