@@ -2,9 +2,11 @@ package iostream;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+import server.EchoServer;
 
 import java.io.*;
 import java.io.IOException;
+import java.net.ServerSocket;
 import java.net.Socket;
 
 import static org.mockito.Mockito.*;
@@ -23,14 +25,20 @@ public class IOSocketHandlerTest {
 
     @Test
     public void testClientSocketInputCreated() throws IOException {
-        when(clientSocket.getInputStream()).thenReturn(inputStream);
+        final int mockPort = 5678;
+        ServerSocket mockServerSocket = EchoServer.openServerSocketConnection(mockPort);
+        Socket mockClientSocket = mockServerSocket.accept();
+//        when(mockClientSocket.getInputStream()).thenReturn(inputStream);
 
-        assertNotNull(IOSocketHandler.createClientInputReader(clientSocket));
+        assertNotNull(IOSocketHandler.createClientInputReader(mockClientSocket));
     }
     @Test
     public void testClientSocketOutputCreated() throws IOException {
-        when(clientSocket.getOutputStream()).thenReturn(outputStream);
+        final int mockPort = 5678;
+        ServerSocket mockServerSocket = EchoServer.openServerSocketConnection(mockPort);
+        Socket mockClientSocket = mockServerSocket.accept();
+//        when(clientSocket.getOutputStream()).thenReturn(outputStream);
 
-        assertNotNull(IOSocketHandler.createClientOutputWriter(clientSocket));
+        assertNotNull(IOSocketHandler.createClientOutputWriter(mockClientSocket));
     }
 }
