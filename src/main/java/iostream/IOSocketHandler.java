@@ -10,14 +10,12 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 public class IOSocketHandler {
-
     public static BufferedReader createClientInputReader(Socket clientSocket) throws IOException {
         return new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
     }
     public static PrintWriter createClientOutputWriter(Socket clientSocket) throws IOException {
         return new PrintWriter(clientSocket.getOutputStream(), true);
     }
-    
     public static void createClientSocketInputOutputStream(Socket clientSocket) throws IOException{
 
         try {
@@ -30,7 +28,6 @@ public class IOSocketHandler {
             System.out.println("Input & Output stream not created");
         }
     }
-
     public static void clientInputOutputLoop(BufferedReader clientInput, PrintWriter serverOutput) throws IOException {
         String clientInputLine;
 
