@@ -24,16 +24,9 @@ class EchoServerTest {
     }
 
     @Test
-    public void testServerSocketFailsToOpensConnectionToPort() throws IOException {
+    public void testServerSocketFailsToConnectToInvalidPort() throws IOException {
         var echoServer = new EchoServer();
-        final int mockPort = 5678;
-        try {
-            echoServer.openServerSocketConnection(mockPort);
-            fail(Listening.cannotListenForConnection(Integer.toString(mockPort)));
-        }catch(IOException e){
-            System.out.println("EXECPTION:"+e);
-            assertNotNull(e);
-        }
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> echoServer.openServerSocketConnection(-1));
     }
 
     @Test
