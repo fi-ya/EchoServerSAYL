@@ -4,8 +4,6 @@ import java.io.*;
 import java.net.*;
 
 import iostream.IOSocketHandler;
-import message.Connection;
-import message.Listening;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
