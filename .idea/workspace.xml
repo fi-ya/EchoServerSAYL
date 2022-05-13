@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09b4f137-4a58-406b-8a35-01bef536cb3d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/iostream/IOSocketHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/iostream/IOSocketHandlerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/server/EchoServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/server/EchoServerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +89,7 @@
       <recent name="server" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="Gradle.IOSocketHandlerTest.testInputOutputStreamClosesWhenByeMessageSent">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="EchoServerSAYL.main" />
@@ -120,7 +120,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="EchoServerTest.testClientSocketConnectsToServerSocket (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="EchoServerTest.testServerDisconnectedWhenClientSentExitMessage" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -133,7 +133,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;server.EchoServerTest.testClientSocketConnectsToServerSocket&quot;" />
+            <option value="&quot;server.EchoServerTest.testServerDisconnectedWhenClientSentExitMessage&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -143,30 +143,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="IOSocketHandlerTest.inputOutputStream" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;iostream.IOSocketHandlerTest.inputOutputStream&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="IOSocketHandlerTest.testInputOutputStream" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="IOSocketHandlerTest.testInputOutputStream (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -189,13 +166,36 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="IOSocketHandlerTest.testInputOutputStreamClosesWhenByeMessageSent" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;iostream.IOSocketHandlerTest.testInputOutputStreamClosesWhenByeMessageSent&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.IOSocketHandlerTest.testInputOutputStreamClosesWhenByeMessageSent" />
+        <item itemvalue="Gradle.IOSocketHandlerTest.testInputOutputStream (1)" />
+        <item itemvalue="Gradle.EchoServerTest.testServerDisconnectedWhenClientSentExitMessage" />
         <item itemvalue="Application.App" />
-        <item itemvalue="Gradle.IOSocketHandlerTest.testInputOutputStream" />
         <item itemvalue="Gradle.EchoServerTest" />
-        <item itemvalue="Gradle.EchoServerTest.testClientSocketConnectsToServerSocket (1)" />
-        <item itemvalue="Gradle.IOSocketHandlerTest.inputOutputStream" />
       </list>
     </recent_temporary>
   </component>

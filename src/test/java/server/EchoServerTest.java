@@ -47,15 +47,21 @@ class EchoServerTest {
 
         BufferedReader mockClientInput = mock(BufferedReader.class);
         PrintWriter mockServerOutput = mock(PrintWriter.class);
-        when(mockClientInput.readLine()).thenAnswer(new ReturnsElementsOf(List.of("hello", "bye")));
+        when(mockClientInput.readLine()).thenAnswer(new ReturnsElementsOf(List.of("bye")));
 
         IOSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput);
 //        mockServerOutput.close();
-//        mockClientInput.close();
-        mockServerOutput = null;
-        mockClientInput = null;
-
-        assertNull(mockServerOutput);
-        assertNull(mockClientInput);
+////      mockClientInput.close();
+//        mockServerOutput = null;
+//        mockClientInput = null;
+        verify(mockServerOutput, times(1)).close();
+        verify(mockClientInput, times(1)).close();
+//        verify(mockClientSocket, times(1)).close();
+//        verify(mockServerSocket, times(1)).close();
+//        verify(mockServerSocket).isClosed();
+//        verify(mockClientSocket).isClosed();
+//
+//        assertNull(mockServerSocket);
+//        assertNull(mockClientSocket);
     }
 }

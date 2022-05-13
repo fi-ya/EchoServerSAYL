@@ -12,15 +12,30 @@ import org.junit.jupiter.api.Test;
 import org.mockito.internal.stubbing.answers.ReturnsElementsOf;
 
 public class IOSocketHandlerTest {
+
     @Test
-    public void testInputOutputStream() throws IOException {
+    public void testInputOutputStreamMessages() throws IOException {
+        BufferedReader mockClientInput = mock(BufferedReader.class);
+        PrintWriter mockServerOutput = mock(PrintWriter.class);
+        when(mockClientInput.readLine()).thenAnswer(new ReturnsElementsOf(List.of("hello", "world! ", "bye")));
+
+        IOSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput);
+
+        verify(mockServerOutput).println("Server response: hello");
+        verify(mockServerOutput).println("Server response: world");
+        verify(mockServerOutput).println("Server response: bye");
+    }
+    @Test
+    public void testInputOutputStreamClosesWhenByeMessageSent() throws IOException {
        BufferedReader mockClientInput = mock(BufferedReader.class);
        PrintWriter mockServerOutput = mock(PrintWriter.class);
-       when(mockClientInput.readLine()).thenAnswer(new ReturnsElementsOf(List.of("hello", "bye")));
+       when(mockClientInput.readLine()).thenReturn("bye");
 
        IOSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput);
 
-       verify(mockServerOutput).println("Server response: hello");
+       verify(mockServerOutput).println("Server response: bye");
+       verify(mockServerOutput, times(1)).close();
+       verify(mockClientInput, times(1)).close();
     }
 
 }
