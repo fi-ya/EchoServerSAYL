@@ -47,14 +47,10 @@ class EchoServerTest {
     public void testClientSocketFailedToConnectToServerSocket() throws IOException {
         var echoServer = new EchoServer();
         ServerSocket mockServerSocket = mock(ServerSocket.class);
-        Socket mockClientSocket = mock(Socket.class);
+        mockServerSocket.close();
+        echoServer.connectClientSocket(mockServerSocket);
 
-        try {
-            when(mockServerSocket.accept()).thenReturn(mockClientSocket);
-            fail(Connection.failedConnection());
-        }catch(IOException e){
-            assertNotNull(e);
-        }
+        assertNotNull(IllegalArgumentException.class);
     }
     @Test
     public  void testServerDisconnectedWhenClientSentExitMessage() throws IOException {

@@ -88,7 +88,7 @@
       <recent name="server" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.EchoServerTest.testServerSocketFailsToConnectToInvalidPort">
+  <component name="RunManager" selected="Gradle.EchoServerTest.testClientSocketFailedToConnectToServerSocket (1)">
     <configuration name="EchoServerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -112,7 +112,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="EchoServerTest.testClientSocketFailedToConnectToServerSocket" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="EchoServerTest.testClientSocketFailedToConnectToServerSocket (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -206,10 +206,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.EchoServerTest.testClientSocketFailedToConnectToServerSocket (1)" />
         <item itemvalue="Gradle.EchoServerTest.testServerSocketFailsToConnectToInvalidPort" />
         <item itemvalue="Gradle.EchoServerTest" />
         <item itemvalue="Gradle.EchoServerTest.testServerSocketFailsToOpensConnectionToPort (1)" />
-        <item itemvalue="Gradle.EchoServerTest.testClientSocketFailedToConnectToServerSocket" />
         <item itemvalue="Gradle.EchoServerTest.testServerSocketOpensConnectionToPort" />
       </list>
     </recent_temporary>
