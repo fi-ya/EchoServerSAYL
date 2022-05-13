@@ -2,25 +2,38 @@ package server;
 
 import java.io.*;
 import java.net.*;
-import java.util.List;
 
 import iostream.IOSocketHandler;
+import message.Connection;
+import message.Listening;
 import org.junit.jupiter.api.Test;
-import org.mockito.internal.stubbing.answers.ReturnsElementsOf;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class EchoServerTest {
-
     @Test
     public void testServerSocketOpensConnectionToPort() throws IOException {
         var echoServer = new EchoServer();
         final int mockPort = 5678;
+
         echoServer.openServerSocketConnection(mockPort);
+
         ServerSocket serverSocketNew = echoServer.getServerSocket();
 
         assertNotNull(serverSocketNew);
+    }
+
+    @Test
+    public void testServerSocketFailsToOpensConnectionToPort() throws IOException {
+        var echoServer = new EchoServer();
+        final int mockPort = 5678;
+        try {
+            echoServer.openServerSocketConnection(mockPort);
+            fail(Listening.cannotListenForConnection(Integer.toString(mockPort)));
+        }catch(IOException e){
+            System.out.println("EXECPTION:"+e);
+            assertNotNull(e);
+        }
     }
 
     @Test
@@ -33,9 +46,23 @@ class EchoServerTest {
 
         echoServer.connectClientSocket(mockServerSocket);
         Socket result = echoServer.getClientSocket();
+
         assertEquals(mockClientSocket, result);
     }
 
+    @Test
+    public void testClientSocketFailedToConnectToServerSocket() throws IOException {
+        var echoServer = new EchoServer();
+        ServerSocket mockServerSocket = mock(ServerSocket.class);
+        Socket mockClientSocket = mock(Socket.class);
+
+        try {
+            when(mockServerSocket.accept()).thenReturn(mockClientSocket);
+            fail(Connection.failedConnection());
+        }catch(IOException e){
+            assertNotNull(e);
+        }
+    }
     @Test
     public  void testServerDisconnectedWhenClientSentExitMessage() throws IOException {
         var echoServer = new EchoServer();
