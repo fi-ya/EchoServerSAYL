@@ -1,6 +1,5 @@
 package message;
 
-import server.EchoServer;
 
 public class Connection {
 

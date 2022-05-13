@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+
 class EchoServerTest {
     @Test
     public void testServerSocketOpensConnectionToPort() throws IOException {
@@ -15,18 +16,15 @@ class EchoServerTest {
         final int mockPort = 5678;
 
         echoServer.openServerSocketConnection(mockPort);
-
         ServerSocket serverSocketNew = echoServer.getServerSocket();
 
         assertNotNull(serverSocketNew);
     }
-
     @Test
     public void testServerSocketFailsToConnectToInvalidPort() throws IOException {
         var echoServer = new EchoServer();
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> echoServer.openServerSocketConnection(-1));
+        assertThrows(IllegalArgumentException.class, () -> echoServer.openServerSocketConnection(-1));
     }
-
     @Test
     public void testClientSocketConnectsToServerSocket() throws IOException {
         var echoServer = new EchoServer();
@@ -34,13 +32,11 @@ class EchoServerTest {
         Socket mockClientSocket = mock(Socket.class);
 
         when(mockServerSocket.accept()).thenReturn(mockClientSocket);
-
         echoServer.connectClientSocket(mockServerSocket);
         Socket result = echoServer.getClientSocket();
 
         assertEquals(mockClientSocket, result);
     }
-
     @Test
     public void testClientSocketFailedToConnectToServerSocket() throws IOException {
         var echoServer = new EchoServer();
@@ -58,11 +54,9 @@ class EchoServerTest {
         when(mockServerSocket.accept()).thenReturn(mockClientSocket);
 
         echoServer.connectClientSocket(mockServerSocket);
-
         BufferedReader mockClientInput = mock(BufferedReader.class);
         PrintWriter mockServerOutput = mock(PrintWriter.class);
         when(mockClientInput.readLine()).thenReturn("bye");
-
         IOSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput);
         mockClientSocket.close();
         mockServerSocket.close();

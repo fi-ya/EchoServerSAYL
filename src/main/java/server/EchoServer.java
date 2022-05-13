@@ -13,7 +13,6 @@ public class EchoServer {
     public static Socket clientSocket;
     public static final int PORT = 1234;
     public void start() throws IOException {
-
         openServerSocketConnection(PORT);
         connectClientSocket(serverSocket);
         IOSocketHandler.createClientSocketInputOutputStream(clientSocket);
@@ -21,7 +20,6 @@ public class EchoServer {
         clientSocket.close();
         serverSocket.close();
     }
-
     public void openServerSocketConnection(int PORT) throws IOException {
         try {
             serverSocket = new ServerSocket(PORT);
@@ -31,7 +29,6 @@ public class EchoServer {
             System.exit(1);
         }
     }
-
     public ServerSocket getServerSocket() {
         return serverSocket;
     }

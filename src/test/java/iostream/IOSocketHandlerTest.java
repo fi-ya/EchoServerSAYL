@@ -9,8 +9,8 @@ import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.Test;
 import org.mockito.internal.stubbing.answers.ReturnsElementsOf;
 
-public class IOSocketHandlerTest {
 
+public class IOSocketHandlerTest {
     @Test
     public void testInputOutputStreamMessages() throws IOException {
         BufferedReader mockClientInput = mock(BufferedReader.class);
@@ -35,5 +35,4 @@ public class IOSocketHandlerTest {
        verify(mockServerOutput, times(1)).close();
        verify(mockClientInput, times(1)).close();
     }
-
 }
