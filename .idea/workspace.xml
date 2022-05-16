@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09b4f137-4a58-406b-8a35-01bef536cb3d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/echoserver/message/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/echoserver/server/ServerLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/echoserver/server/StdOutServerLogger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/echoserver/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/echoserver/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/echoserver/iostream/IOSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/echoserver/iostream/IOSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/echoserver/message/Connection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/echoserver/message/Listening.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/echoserver/message/Message.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/echoserver/server/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/echoserver/server/EchoServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +95,7 @@
       <recent name="server" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.EchoServerTest (1)">
+  <component name="RunManager" selected="Application.echoserver.App">
     <configuration name="echoserver.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="echoserver.App" />
       <module name="EchoServerSAYL.main" />

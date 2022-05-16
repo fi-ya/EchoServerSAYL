@@ -1,7 +1,6 @@
 package echoserver.server;
 
 import echoserver.iostream.IOSocketHandler;
-import echoserver.message.Message;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -11,12 +10,18 @@ import java.net.Socket;
 public class EchoServer {
     private ServerSocket serverSocket;
     private Socket clientSocket;
+    private final ServerLogger serverLogger;
+
+    public EchoServer(ServerLogger serverLogger){
+        this.serverLogger = serverLogger;
+    }
 
     public void start() throws IOException {
         int PORT = 1234;
+        StdOutServerLogger serverLogger = new StdOutServerLogger();
         openServerSocketConnection(PORT);
         connectClientSocket(serverSocket);
-        IOSocketHandler.createClientSocketInputOutputStream(clientSocket);
+        IOSocketHandler.createClientSocketInputOutputStream(clientSocket, serverLogger);
 
         clientSocket.close();
         serverSocket.close();
@@ -24,9 +29,11 @@ public class EchoServer {
     public void openServerSocketConnection(int PORT) throws IOException {
         try {
             serverSocket = new ServerSocket(PORT);
-            System.out.println(Message.listeningForConnection(Integer.toString(PORT)));
+            serverLogger.listeningForConnection(Integer.toString(PORT));
+//            System.out.println(Message.listeningForConnection(Integer.toString(PORT)));
         } catch(IOException ie){
-            System.out.println(Message.cannotListenForConnection(Integer.toString(PORT)));
+            serverLogger.cannotListenForConnection(Integer.toString(PORT));
+//            System.out.println(Message.cannotListenForConnection(Integer.toString(PORT)));
             System.exit(1);
         }
     }
@@ -37,9 +44,11 @@ public class EchoServer {
     public void connectClientSocket(ServerSocket serverSocket) throws IOException {
         try {
             clientSocket = serverSocket.accept();
-            System.out.println(Message.successfulConnection());
+            serverLogger.successfulConnection();
+//            System.out.println(Message.successfulConnection());
         } catch(IOException ie) {
-            System.out.println(Message.failedConnection());
+            serverLogger.failedConnection();
+//            System.out.println(Message.failedConnection());
             System.exit(1);
         }
     }

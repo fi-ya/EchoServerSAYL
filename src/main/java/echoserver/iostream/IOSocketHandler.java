@@ -1,6 +1,6 @@
 package echoserver.iostream;
 
-import echoserver.message.Message;
+import echoserver.server.ServerLogger;
 
 import java.net.Socket;
 import java.io.BufferedReader;
@@ -16,11 +16,12 @@ public class IOSocketHandler {
     public static PrintWriter createClientOutputWriter(Socket clientSocket) throws IOException {
         return new PrintWriter(clientSocket.getOutputStream(), true);
     }
-    public static void createClientSocketInputOutputStream(Socket clientSocket) throws IOException{
+    public static void createClientSocketInputOutputStream(Socket clientSocket, ServerLogger serverLogger) throws IOException{
         try {
             BufferedReader clientInput = createClientInputReader(clientSocket);
             PrintWriter serverOutput = createClientOutputWriter(clientSocket);
-            System.out.println(Message.listeningForClientInput());
+            serverLogger.listeningForClientInput();
+//            System.out.println(Message.listeningForClientInput());
             clientInputOutputLoop(clientInput, serverOutput);
         } catch(IOException ie){
             System.out.println("Input & Output stream not created");
