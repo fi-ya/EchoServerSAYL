@@ -18,13 +18,22 @@ It was built following [these specifications](https://github.com/8thlight/appren
 The following steps will allow you to run the game in your terminal.
 1. Clone repository `git clone git@github.com:fi-ya/EchoServerSAYL.git`
 2. Check to see if you have the correct version of Java (18.0.1.1) installed `java --version`>
-3. Open project in your IDE of choice.
-4. Start server program by opening `src/main/java/echoserver.App` and pressing green `play` button next to `echoserver.App.Main()` or click `Ctrl + Shift + R`.
-5. Once build complete, you should see a message in the terminal `[+] Listening for connection on port 1234`
-6. Check to see if you have [netcat](https://brewinstall.org/install-netcat-on-mac-with-brew/). To install run `brew install netcat` 
-7. Start client connection in a terminal by running `nc localhost 1234`
-8. Server console should show connection made `[+] Listening for client server input`
-9. You can now send messages in client terminal and see messaged echoed back from server.
+Choose to open build/run the server socket either with an IDE or in the terminal (CLI)
+- IntelliJ/VS Code: open `src/main/java/echoserver.App` and pressing green `play` button next to `echoserver.App.Main()` or click `Ctrl + Shift + R`.
+- Terminal: run the command `./gradlew run`
+7. Once build complete, you should see a message in the terminal `[+] Listening for connection on port 1234`
+8. Check to see if you have [netcat](https://brewinstall.org/install-netcat-on-mac-with-brew/). To install run `brew install netcat`
+9. Start client connection in a terminal by running `nc localhost 1234`
+10. Server console should show connection made `[+] Listening for client server input`
+11. You can now send messages in client terminal and see messaged echoed back from server.
+
+## Close Project
+Close the server socket:
+- IntelliJ/VS Code: press the red `stop` button next to `echoserver.App.Main()`
+- Terminal: exit via `CTR + C`
+
+Close the client socket:
+- Terminal: submit the input `bye`
 
 ## Run tests
 You can find all tests in `src/test/java`
