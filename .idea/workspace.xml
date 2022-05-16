@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09b4f137-4a58-406b-8a35-01bef536cb3d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/iostream/IOSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/iostream/IOSocketHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/message/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/Connection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/message/Listening.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/Listening.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/EchoServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/iostream/IOSocketHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/iostream/IOSocketHandlerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/server/EchoServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/server/EchoServerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -226,11 +224,11 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/EchoServerSAYL$EchoServerTest_testServerSocketFailsToOpensConnectionToPort__1_.ic" NAME="EchoServerTest.testServerSocketFailsToOpensConnectionToPort (1) Coverage Results" MODIFIED="1652451373128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/EchoServerSAYL$EchoServerTest_testServerSocketOpensConnectionToPort.ic" NAME="EchoServerTest.testServerSocketOpensConnectionToPort Coverage Results" MODIFIED="1652441535201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/EchoServerSAYL$EchoServerTest.ic" NAME="EchoServerTest Coverage Results" MODIFIED="1652451409938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/EchoServerSAYL$App.ic" NAME="App Coverage Results" MODIFIED="1652439644725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/EchoServerSAYL$IOSocketHandlerTest_inputOutputStream.ic" NAME="IOSocketHandlerTest.inputOutputStream Coverage Results" MODIFIED="1652388369046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/EchoServerSAYL$EchoServerTest_testServerSocketFailsToOpensConnectionToPort__1_.ic" NAME="EchoServerTest.testServerSocketFailsToOpensConnectionToPort (1) Coverage Results" MODIFIED="1652451373128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/EchoServerSAYL$EchoServerTest.ic" NAME="EchoServerTest Coverage Results" MODIFIED="1652455280221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/EchoServerSAYL$EchoServerTest_testClientSocketConnectsToServerSocket__1_.ic" NAME="EchoServerTest.testClientSocketConnectsToServerSocket (1) Coverage Results" MODIFIED="1652388118882" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/EchoServerSAYL$EchoServerTest_testServerSocketOpensConnectionToPort.ic" NAME="EchoServerTest.testServerSocketOpensConnectionToPort Coverage Results" MODIFIED="1652441535201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/EchoServerSAYL$App.ic" NAME="App Coverage Results" MODIFIED="1652439644725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
