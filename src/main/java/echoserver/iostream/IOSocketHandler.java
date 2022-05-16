@@ -21,12 +21,12 @@ public class IOSocketHandler {
             BufferedReader clientInput = createClientInputReader(clientSocket);
             PrintWriter serverOutput = createClientOutputWriter(clientSocket);
             serverLogger.listeningForClientInput();
-            clientInputOutputLoop(clientInput, serverOutput);
+            clientInputOutputLoop(clientInput, serverOutput, clientSocket);
         } catch(IOException ie){
             System.out.println("Input & Output stream not created");
         }
     }
-    public static void clientInputOutputLoop(BufferedReader clientInput, PrintWriter serverOutput) throws IOException {
+    public static void clientInputOutputLoop(BufferedReader clientInput, PrintWriter serverOutput, Socket clientSocket) throws IOException {
         String clientInputLine;
 
         while((clientInputLine = clientInput.readLine()) != null) {
@@ -39,5 +39,6 @@ public class IOSocketHandler {
         }
         serverOutput.close();
         clientInput.close();
+        clientSocket.close();
     }
 }

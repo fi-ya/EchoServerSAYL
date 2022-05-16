@@ -39,7 +39,7 @@ class EchoServerTest {
         Socket mockClientSocket = mock(Socket.class);
 
         when(mockServerSocket.accept()).thenReturn(mockClientSocket);
-        echoServer.connectClientSocket(mockServerSocket);
+        echoServer.connectClientSocket(mockServerSocket, serverLogger);
         Socket result = echoServer.getClientSocket();
 
         assertEquals(mockClientSocket, result);
@@ -50,29 +50,26 @@ class EchoServerTest {
         var echoServer = new EchoServer(serverLogger);
         ServerSocket mockServerSocket = mock(ServerSocket.class);
         mockServerSocket.close();
-        echoServer.connectClientSocket(mockServerSocket);
+        echoServer.connectClientSocket(mockServerSocket, serverLogger);
 
         assertNotNull(IllegalArgumentException.class);
     }
     @Test
-    public  void testServerDisconnectedWhenClientSentExitMessage() throws IOException {
+    public  void testClientSocketDisconnectedWhenClientSentExitMessage() throws IOException {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
         var echoServer = new EchoServer(serverLogger);
         ServerSocket mockServerSocket = mock(ServerSocket.class);
         Socket mockClientSocket = mock(Socket.class);
         when(mockServerSocket.accept()).thenReturn(mockClientSocket);
 
-        echoServer.connectClientSocket(mockServerSocket);
+        echoServer.connectClientSocket(mockServerSocket, serverLogger);
         BufferedReader mockClientInput = mock(BufferedReader.class);
         PrintWriter mockServerOutput = mock(PrintWriter.class);
         when(mockClientInput.readLine()).thenReturn("bye");
-        IOSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput);
-        mockClientSocket.close();
-        mockServerSocket.close();
+        IOSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput,mockClientSocket);
 
         verify(mockServerOutput, times(1)).close();
         verify(mockClientInput, times(1)).close();
         verify(mockClientSocket, times(1)).close();
-        verify(mockServerSocket, times(1)).close();
     }
 }
