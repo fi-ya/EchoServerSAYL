@@ -1,15 +1,14 @@
 package echoserver.iostream;
 
-import java.io.IOException;
+import org.junit.jupiter.api.Test;
+import org.mockito.internal.stubbing.answers.ReturnsElementsOf;
+
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
 import static org.mockito.Mockito.*;
-
-import echoserver.iostream.IOSocketHandler;
-import org.junit.jupiter.api.Test;
-import org.mockito.internal.stubbing.answers.ReturnsElementsOf;
 
 
 public class IOSocketHandlerTest {

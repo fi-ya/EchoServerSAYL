@@ -95,7 +95,7 @@
       <recent name="server" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.echoserver.App">
+  <component name="RunManager" selected="Gradle.EchoServerTest (1)">
     <configuration name="echoserver.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="echoserver.App" />
       <module name="EchoServerSAYL.main" />

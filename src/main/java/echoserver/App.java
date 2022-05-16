@@ -1,7 +1,6 @@
 package echoserver;
 
 import echoserver.server.EchoServer;
-import echoserver.server.ServerLogger;
 import echoserver.server.StdOutServerLogger;
 
 import java.io.IOException;
