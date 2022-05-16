@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09b4f137-4a58-406b-8a35-01bef536cb3d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/iostream/IOSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/iostream/IOSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/Connection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/Listening.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/Listening.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/EchoServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/server/EchoServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/server/EchoServerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/iostream/IOSocketHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/iostream/IOSocketHandlerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +164,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="EchoServerTest.testServerSocketFailsToOpensConnectionToPort (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="IOSocketHandlerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -181,7 +177,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;server.EchoServerTest.testServerSocketFailsToOpensConnectionToPort&quot;" />
+            <option value="&quot;iostream.IOSocketHandlerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -193,11 +189,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.EchoServerTest" />
+        <item itemvalue="Gradle.IOSocketHandlerTest" />
         <item itemvalue="Application.App" />
         <item itemvalue="Gradle.EchoServerTest.testServerSocketFailsToConnectToInvalidPort" />
         <item itemvalue="Gradle.EchoServerTest.testClientSocketFailedToConnectToServerSocket (1)" />
-        <item itemvalue="Gradle.EchoServerTest" />
-        <item itemvalue="Gradle.EchoServerTest.testServerSocketFailsToOpensConnectionToPort (1)" />
       </list>
     </recent_temporary>
   </component>

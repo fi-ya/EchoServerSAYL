@@ -20,7 +20,7 @@ public class IOSocketHandlerTest {
         IOSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput);
 
         verify(mockServerOutput).println("Server response: hello");
-        verify(mockServerOutput).println("Server response: world");
+        verify(mockServerOutput).println("Server response: world! ");
         verify(mockServerOutput).println("Server response: bye");
     }
     @Test

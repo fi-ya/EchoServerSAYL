@@ -10,10 +10,11 @@ import java.net.Socket;
 
 
 public class EchoServer {
-    public static ServerSocket serverSocket;
-    public static Socket clientSocket;
-    public static final int PORT = 1234;
+    private ServerSocket serverSocket;
+    private Socket clientSocket;
+
     public void start() throws IOException {
+        int PORT = 1234;
         openServerSocketConnection(PORT);
         connectClientSocket(serverSocket);
         IOSocketHandler.createClientSocketInputOutputStream(clientSocket);
@@ -47,5 +48,3 @@ public class EchoServer {
         return clientSocket;
     }
 }
-
-
