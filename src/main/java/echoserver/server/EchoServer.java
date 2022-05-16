@@ -30,10 +30,8 @@ public class EchoServer {
         try {
             serverSocket = new ServerSocket(PORT);
             serverLogger.listeningForConnection(Integer.toString(PORT));
-//            System.out.println(Message.listeningForConnection(Integer.toString(PORT)));
         } catch(IOException ie){
             serverLogger.cannotListenForConnection(Integer.toString(PORT));
-//            System.out.println(Message.cannotListenForConnection(Integer.toString(PORT)));
             System.exit(1);
         }
     }
@@ -45,10 +43,8 @@ public class EchoServer {
         try {
             clientSocket = serverSocket.accept();
             serverLogger.successfulConnection();
-//            System.out.println(Message.successfulConnection());
         } catch(IOException ie) {
             serverLogger.failedConnection();
-//            System.out.println(Message.failedConnection());
             System.exit(1);
         }
     }

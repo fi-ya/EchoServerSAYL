@@ -21,7 +21,6 @@ public class IOSocketHandler {
             BufferedReader clientInput = createClientInputReader(clientSocket);
             PrintWriter serverOutput = createClientOutputWriter(clientSocket);
             serverLogger.listeningForClientInput();
-//            System.out.println(Message.listeningForClientInput());
             clientInputOutputLoop(clientInput, serverOutput);
         } catch(IOException ie){
             System.out.println("Input & Output stream not created");

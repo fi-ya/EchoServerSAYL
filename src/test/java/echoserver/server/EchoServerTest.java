@@ -16,7 +16,8 @@ import static org.mockito.Mockito.*;
 class EchoServerTest {
     @Test
     public void testServerSocketOpensConnectionToPort() throws IOException {
-        var echoServer = new EchoServer();
+        StdOutServerLogger serverLogger = new StdOutServerLogger();
+        var echoServer = new EchoServer(serverLogger);
         final int mockPort = 5678;
 
         echoServer.openServerSocketConnection(mockPort);
@@ -26,12 +27,14 @@ class EchoServerTest {
     }
     @Test
     public void testServerSocketFailsToConnectToInvalidPort() throws IOException {
-        var echoServer = new EchoServer();
+        StdOutServerLogger serverLogger = new StdOutServerLogger();
+        var echoServer = new EchoServer(serverLogger);
         assertThrows(IllegalArgumentException.class, () -> echoServer.openServerSocketConnection(-1));
     }
     @Test
     public void testClientSocketConnectsToServerSocket() throws IOException {
-        var echoServer = new EchoServer();
+        StdOutServerLogger serverLogger = new StdOutServerLogger();
+        var echoServer = new EchoServer(serverLogger);
         ServerSocket mockServerSocket = mock(ServerSocket.class);
         Socket mockClientSocket = mock(Socket.class);
 
@@ -43,7 +46,8 @@ class EchoServerTest {
     }
     @Test
     public void testClientSocketFailedToConnectToServerSocket() throws IOException {
-        var echoServer = new EchoServer();
+        StdOutServerLogger serverLogger = new StdOutServerLogger();
+        var echoServer = new EchoServer(serverLogger);
         ServerSocket mockServerSocket = mock(ServerSocket.class);
         mockServerSocket.close();
         echoServer.connectClientSocket(mockServerSocket);
@@ -52,7 +56,8 @@ class EchoServerTest {
     }
     @Test
     public  void testServerDisconnectedWhenClientSentExitMessage() throws IOException {
-        var echoServer = new EchoServer();
+        StdOutServerLogger serverLogger = new StdOutServerLogger();
+        var echoServer = new EchoServer(serverLogger);
         ServerSocket mockServerSocket = mock(ServerSocket.class);
         Socket mockClientSocket = mock(Socket.class);
         when(mockServerSocket.accept()).thenReturn(mockClientSocket);
