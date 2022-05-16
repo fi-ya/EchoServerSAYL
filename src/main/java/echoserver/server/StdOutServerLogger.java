@@ -5,11 +5,9 @@ public class StdOutServerLogger implements ServerLogger {
     public void successfulConnection() {
         System.out.println("[+] Connection successful");
     }
-
     public void failedConnection() {
         System.out.println("[-] Connection accept failed");
     }
-
     public void listeningForConnection(String portNumber) {
         System.out.println("[+] Listening for connection on port " + portNumber);
     }
