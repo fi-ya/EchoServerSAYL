@@ -1,6 +1,6 @@
 package echoserver.iostream;
 
-import echoserver.message.Listening;
+import echoserver.message.Message;
 
 import java.net.Socket;
 import java.io.BufferedReader;
@@ -20,7 +20,7 @@ public class IOSocketHandler {
         try {
             BufferedReader clientInput = createClientInputReader(clientSocket);
             PrintWriter serverOutput = createClientOutputWriter(clientSocket);
-            System.out.println(Listening.listeningForClientInput());
+            System.out.println(Message.listeningForClientInput());
             clientInputOutputLoop(clientInput, serverOutput);
         } catch(IOException ie){
             System.out.println("Input & Output stream not created");

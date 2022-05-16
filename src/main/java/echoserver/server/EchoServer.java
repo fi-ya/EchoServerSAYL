@@ -1,8 +1,7 @@
 package echoserver.server;
 
 import echoserver.iostream.IOSocketHandler;
-import echoserver.message.Connection;
-import echoserver.message.Listening;
+import echoserver.message.Message;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -25,9 +24,9 @@ public class EchoServer {
     public void openServerSocketConnection(int PORT) throws IOException {
         try {
             serverSocket = new ServerSocket(PORT);
-            System.out.println(Listening.listeningForConnection(Integer.toString(PORT)));
+            System.out.println(Message.listeningForConnection(Integer.toString(PORT)));
         } catch(IOException ie){
-            System.out.println(Listening.cannotListenForConnection(Integer.toString(PORT)));
+            System.out.println(Message.cannotListenForConnection(Integer.toString(PORT)));
             System.exit(1);
         }
     }
@@ -38,9 +37,9 @@ public class EchoServer {
     public void connectClientSocket(ServerSocket serverSocket) throws IOException {
         try {
             clientSocket = serverSocket.accept();
-            System.out.println(Connection.successfulConnection());
+            System.out.println(Message.successfulConnection());
         } catch(IOException ie) {
-            System.out.println(Connection.failedConnection());
+            System.out.println(Message.failedConnection());
             System.exit(1);
         }
     }

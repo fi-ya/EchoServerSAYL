@@ -1,6 +1,15 @@
 package echoserver.message;
 
-public class Listening {
+public class Message {
+
+    public static String successfulConnection() {
+        return "[+] Connection successful";
+    }
+
+    public static String failedConnection() {
+        return "[-] Connection accept failed";
+    }
+
     public static String listeningForConnection(String portNumber) {
         return "[+] Listening for connection on port " + portNumber;
     }
