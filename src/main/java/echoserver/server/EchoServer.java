@@ -1,8 +1,8 @@
-package server;
+package echoserver.server;
 
-import iostream.IOSocketHandler;
-import message.Connection;
-import message.Listening;
+import echoserver.iostream.IOSocketHandler;
+import echoserver.message.Connection;
+import echoserver.message.Listening;
 
 import java.io.IOException;
 import java.net.ServerSocket;

@@ -1,6 +1,6 @@
-package iostream;
+package echoserver.iostream;
 
-import message.Listening;
+import echoserver.message.Listening;
 
 import java.net.Socket;
 import java.io.BufferedReader;

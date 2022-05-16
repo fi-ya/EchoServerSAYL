@@ -1,4 +1,4 @@
-package message;
+package echoserver.message;
 
 
 public class Connection {

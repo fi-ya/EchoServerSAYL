@@ -1,4 +1,4 @@
-package message;
+package echoserver.message;
 
 public class Listening {
     public static String listeningForConnection(String portNumber) {

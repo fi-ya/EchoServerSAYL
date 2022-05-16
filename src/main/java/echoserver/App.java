@@ -1,4 +1,6 @@
-import server.EchoServer;
+package echoserver;
+
+import echoserver.server.EchoServer;
 import java.io.IOException;
 
 public class App {

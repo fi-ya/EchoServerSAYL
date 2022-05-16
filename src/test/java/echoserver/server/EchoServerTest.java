@@ -1,4 +1,4 @@
-package server;
+package echoserver.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -6,7 +6,8 @@ import java.net.Socket;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 
-import iostream.IOSocketHandler;
+import echoserver.server.EchoServer;
+import echoserver.iostream.IOSocketHandler;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;

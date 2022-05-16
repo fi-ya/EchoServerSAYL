@@ -19,7 +19,7 @@ The following steps will allow you to run the game in your terminal.
 1. Clone repository `git clone git@github.com:fi-ya/EchoServerSAYL.git`
 2. Check to see if you have the correct version of Java (18.0.1.1) installed `java --version`>
 3. Open project in your IDE of choice.
-4. Start server program by opening `src/main/java/App` and pressing green `play` button next to `App.Main()` or click `Ctrl + Shift + R`.
+4. Start server program by opening `src/main/java/echoserver.App` and pressing green `play` button next to `echoserver.App.Main()` or click `Ctrl + Shift + R`.
 5. Once build complete, you should see a message in the terminal `[+] Listening for connection on port 1234`
 6. Check to see if you have [netcat](https://brewinstall.org/install-netcat-on-mac-with-brew/). To install run `brew install netcat` 
 7. Start client connection in a terminal by running `nc localhost 1234`
