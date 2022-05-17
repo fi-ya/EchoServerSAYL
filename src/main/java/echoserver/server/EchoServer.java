@@ -12,9 +12,11 @@ public class EchoServer {
     private Socket clientSocket;
     private final ServerLogger serverLogger;
     private final int PORT = 1234;
+    private IOSocketHandler ioSocketHandler;
 
-    public EchoServer(ServerLogger serverLogger){
+    public EchoServer(ServerLogger serverLogger, IOSocketHandler ioSocketHandler){
         this.serverLogger = serverLogger;
+        this.ioSocketHandler = ioSocketHandler;
     }
 
     public void start() throws IOException {
@@ -24,10 +26,10 @@ public class EchoServer {
 
         while(!serverSocket.isClosed()){
             connectClientSocket(serverSocket, serverLogger);
-            IOSocketHandler.createClientSocketInputOutputStream(clientSocket, serverLogger);
+            ioSocketHandler.createClientSocketInputOutputStream(clientSocket, serverLogger);
         }
     }
-    public void openServerSocketConnection(int PORT) throws IOException {
+    public void openServerSocketConnection(int PORT) {
         try {
             serverSocket = new ServerSocket(PORT);
             serverLogger.listeningForConnection(PORT);
@@ -40,7 +42,7 @@ public class EchoServer {
         return serverSocket;
     }
 
-    public void connectClientSocket(ServerSocket serverSocket, ServerLogger serverLogger) throws IOException {
+    public void connectClientSocket(ServerSocket serverSocket, ServerLogger serverLogger) {
             try {
                 clientSocket = serverSocket.accept();
                 serverLogger.successfulConnection();

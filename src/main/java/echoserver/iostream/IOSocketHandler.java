@@ -10,23 +10,24 @@ import java.io.PrintWriter;
 
 
 public class IOSocketHandler {
-    private static BufferedReader createClientInputReader(Socket clientSocket) throws IOException {
+    private BufferedReader createClientInputReader(Socket clientSocket) throws IOException {
         return new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
     }
-    private static PrintWriter createClientOutputWriter(Socket clientSocket) throws IOException {
+    private PrintWriter createClientOutputWriter(Socket clientSocket) throws IOException {
         return new PrintWriter(clientSocket.getOutputStream(), true);
     }
-    public static void createClientSocketInputOutputStream(Socket clientSocket, ServerLogger serverLogger) throws IOException{
-        try {
-            BufferedReader clientInput = createClientInputReader(clientSocket);
-            PrintWriter serverOutput = createClientOutputWriter(clientSocket);
+    public void createClientSocketInputOutputStream(Socket clientSocket, ServerLogger serverLogger) throws IOException{
+        try (var clientInput = createClientInputReader(clientSocket);
+             var serverOutput = createClientOutputWriter(clientSocket);
+        ) {
             serverLogger.listeningForClientInput();
             clientInputOutputLoop(clientInput, serverOutput, clientSocket);
         } catch(IOException ie){
             System.out.println("Input & Output stream not created");
         }
+        clientSocket.close();
     }
-    public static void clientInputOutputLoop(BufferedReader clientInput, PrintWriter serverOutput, Socket clientSocket) throws IOException {
+    public void clientInputOutputLoop(BufferedReader clientInput, PrintWriter serverOutput, Socket clientSocket) throws IOException {
         String clientInputLine;
 
         while((clientInputLine = clientInput.readLine()) != null) {
@@ -37,8 +38,5 @@ public class IOSocketHandler {
                 break;
             }
         }
-        serverOutput.close();
-        clientInput.close();
-        clientSocket.close();
     }
 }

@@ -32,7 +32,8 @@ class EchoServerTest {
     @Test
     void testClientSocketConnectsToServerSocket() throws IOException {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
-        var echoServer = new EchoServer(serverLogger);
+        var ioSocketHandler = new IOSocketHandler();
+        var echoServer = new EchoServer(serverLogger, ioSocketHandler);
         ServerSocket mockServerSocket = mock(ServerSocket.class);
         Socket mockClientSocket = mock(Socket.class);
 
@@ -42,18 +43,20 @@ class EchoServerTest {
     }
     @Test
     void testClientSocketFailedToConnectToServerSocket() throws IOException {
-        StdOutServerLogger serverLogger = new StdOutServerLogger();
-        var echoServer = new EchoServer(serverLogger);
+        StdOutServerLogger mockServerLogger = mock(StdOutServerLogger.class);
+        var ioSocketHandler = new IOSocketHandler();
+        var echoServer = new EchoServer(mockServerLogger, ioSocketHandler);
         ServerSocket mockServerSocket = mock(ServerSocket.class);
-        mockServerSocket.close();
-        echoServer.connectClientSocket(mockServerSocket, serverLogger);
+        when(mockServerSocket.accept()).thenThrow(IOException.class);
+        echoServer.connectClientSocket(mockServerSocket, mockServerLogger);
 
-        assertNotNull(IllegalArgumentException.class);
+        verify(mockServerLogger, times(1)).failedConnection();
     }
     @Test
     void testClientSocketDisconnectedWhenClientSentExitMessage() throws IOException {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
-        var echoServer = new EchoServer(serverLogger);
+        var ioSocketHandler = new IOSocketHandler();
+        var echoServer = new EchoServer(serverLogger, ioSocketHandler);
         ServerSocket mockServerSocket = mock(ServerSocket.class);
         Socket mockClientSocket = mock(Socket.class);
         when(mockServerSocket.accept()).thenReturn(mockClientSocket);
@@ -62,7 +65,7 @@ class EchoServerTest {
         BufferedReader mockClientInput = mock(BufferedReader.class);
         PrintWriter mockServerOutput = mock(PrintWriter.class);
         when(mockClientInput.readLine()).thenReturn("bye");
-        IOSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput,mockClientSocket);
+        ioSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput,mockClientSocket);
 
         verify(mockServerOutput, times(1)).close();
         verify(mockClientInput, times(1)).close();
@@ -70,7 +73,8 @@ class EchoServerTest {
     }
     EchoServer mockServerLoggerAndEchoServer() {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
-        var echoServer = new EchoServer(serverLogger);
+        var ioSocketHandler = new IOSocketHandler();
+        var echoServer = new EchoServer(serverLogger, ioSocketHandler);
         return echoServer;
     }
 }
