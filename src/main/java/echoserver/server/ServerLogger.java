@@ -10,4 +10,6 @@ public interface ServerLogger {
     void cannotListenForConnection(String portNumber);
     void listeningForClientInput();
     void closedClientConnection(Socket clientSocket);
+
+    void numberOfClientsConnected(int clientConnectionCounter);
 }

@@ -11,7 +11,6 @@ public class EchoServer {
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private final ServerLogger serverLogger;
-    public int clientConnectionCounter;
 
     public EchoServer(ServerLogger serverLogger){
         this.serverLogger = serverLogger;
@@ -46,8 +45,6 @@ public class EchoServer {
     public void connectClientSocket(ServerSocket serverSocket, ServerLogger serverLogger) throws IOException {
             try {
                 clientSocket = serverSocket.accept();
-                clientConnectionCounter++;
-//                serverLogger.successfulConnection(clientSocket);
             } catch (IOException ie) {
                 serverLogger.failedConnection();
             }
