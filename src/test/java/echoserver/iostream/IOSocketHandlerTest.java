@@ -14,7 +14,7 @@ import static org.mockito.Mockito.*;
 
 public class IOSocketHandlerTest {
     @Test
-    void testInputOutputStreamMessagesAndSocketClosesUsingByeMessage() throws IOException {
+    void inputOutputStreamMessagesAndSocketClosesUsingByeMessage() throws IOException {
         var ioSocketHandler = new IOSocketHandler();
         BufferedReader mockClientInput = mock(BufferedReader.class);
         PrintWriter mockServerOutput = mock(PrintWriter.class);

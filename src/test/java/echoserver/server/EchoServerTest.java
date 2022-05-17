@@ -3,9 +3,7 @@ package echoserver.server;
 import echoserver.iostream.IOSocketHandler;
 import org.junit.jupiter.api.Test;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -15,7 +13,7 @@ import static org.mockito.Mockito.*;
 
 class EchoServerTest {
     @Test
-    void testServerSocketOpensConnectionToPort() throws IOException {
+    void serverSocketOpensConnectionToPort() throws IOException {
         var echoServer = mockServerLoggerAndEchoServer();
         final int mockPort = 5678;
 
@@ -25,12 +23,12 @@ class EchoServerTest {
         assertNotNull(serverSocketNew);
     }
     @Test
-    void testServerSocketFailsToConnectToInvalidPort() throws IOException {
+    void serverSocketFailsToConnectToInvalidPort() throws IOException {
         var echoServer = mockServerLoggerAndEchoServer();
         assertThrows(IllegalArgumentException.class, () -> echoServer.openServerSocketConnection(-1));
     }
     @Test
-    void testClientSocketConnectsToServerSocket() throws IOException {
+    void clientSocketConnectsToServerSocket() throws IOException {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
         var ioSocketHandler = new IOSocketHandler();
         var echoServer = new EchoServer(serverLogger, ioSocketHandler);
@@ -42,7 +40,7 @@ class EchoServerTest {
         verify(mockServerSocket, times(1)).accept();
     }
     @Test
-    void testClientSocketFailedToConnectToServerSocket() throws IOException {
+    void clientSocketFailedToConnectToServerSocket() throws IOException {
         StdOutServerLogger mockServerLogger = mock(StdOutServerLogger.class);
         var ioSocketHandler = new IOSocketHandler();
         var echoServer = new EchoServer(mockServerLogger, ioSocketHandler);
