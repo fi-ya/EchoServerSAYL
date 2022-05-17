@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09b4f137-4a58-406b-8a35-01bef536cb3d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/echoserver/server/MultipleClientsMock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/echoserver/iostream/IOSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/echoserver/iostream/IOSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/echoserver/server/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/echoserver/server/EchoServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/echoserver/server/ServerLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/echoserver/server/ServerLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/echoserver/server/StdOutServerLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/echoserver/server/StdOutServerLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/echoserver/server/EchoServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/echoserver/server/EchoServerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +104,7 @@
       <recent name="server" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.EchoServerTest (1)">
+  <component name="RunManager" selected="Gradle.EchoServerTest.testMultipleClientsAbleToConnectAndClose">
     <configuration name="EchoServerTest (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -124,7 +128,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="EchoServerTest.testClientSocketDisconnectedWhenClientSentExitMessage" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="EchoServerTest.testMultipleClientsAbleToConnectAndClose" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -137,7 +141,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;echoserver.server.EchoServerTest.testClientSocketDisconnectedWhenClientSentExitMessage&quot;" />
+            <option value="&quot;echoserver.server.EchoServerTest.testMultipleClientsAbleToConnectAndClose&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -147,7 +151,30 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="EchoServerTest.testMultipleClientsAbleToConnectToServer" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="EchoServerTest.testMultipleClientsAbleToConnectToClose" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;echoserver.server.EchoServerTest.testMultipleClientsAbleToConnectToClose&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="EchoServerTest.testMultipleClientsAbleToConnectToServer (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -193,36 +220,13 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="IOSocketHandlerTest.testInputOutputStreamMessages" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;echoserver.iostream.IOSocketHandlerTest.testInputOutputStreamMessages&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.EchoServerTest.testMultipleClientsAbleToConnectAndClose" />
+        <item itemvalue="Gradle.EchoServerTest.testMultipleClientsAbleToConnectToServer (1)" />
+        <item itemvalue="Gradle.EchoServerTest.testMultipleClientsAbleToConnectToClose" />
         <item itemvalue="Gradle.EchoServerTest (1)" />
         <item itemvalue="Gradle.IOSocketHandlerTest (1)" />
-        <item itemvalue="Gradle.EchoServerTest.testMultipleClientsAbleToConnectToServer" />
-        <item itemvalue="Gradle.IOSocketHandlerTest.testInputOutputStreamMessages" />
-        <item itemvalue="Gradle.EchoServerTest.testClientSocketDisconnectedWhenClientSentExitMessage" />
       </list>
     </recent_temporary>
   </component>
@@ -249,13 +253,13 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/EchoServerSAYL$IOSocketHandlerTest_inputOutputStream.ic" NAME="IOSocketHandlerTest.inputOutputStream Coverage Results" MODIFIED="1652388369046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/EchoServerSAYL$EchoServerTest_testServerSocketFailsToOpensConnectionToPort__1_.ic" NAME="EchoServerTest.testServerSocketFailsToOpensConnectionToPort (1) Coverage Results" MODIFIED="1652451373128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/EchoServerSAYL$EchoServerTest.ic" NAME="EchoServerTest Coverage Results" MODIFIED="1652455280221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/EchoServerSAYL$EchoServerTest_testClientSocketConnectsToServerSocket__1_.ic" NAME="EchoServerTest.testClientSocketConnectsToServerSocket (1) Coverage Results" MODIFIED="1652388118882" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/EchoServerSAYL$EchoServerTest_testServerSocketOpensConnectionToPort.ic" NAME="EchoServerTest.testServerSocketOpensConnectionToPort Coverage Results" MODIFIED="1652441535201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/EchoServerSAYL$EchoServerTest.ic" NAME="EchoServerTest Coverage Results" MODIFIED="1652455280221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/EchoServerSAYL$App.ic" NAME="App Coverage Results" MODIFIED="1652777322073" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>echoserver.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/EchoServerSAYL$IOSocketHandlerTest_inputOutputStream.ic" NAME="IOSocketHandlerTest.inputOutputStream Coverage Results" MODIFIED="1652388369046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/EchoServerSAYL$EchoServerTest_testClientSocketConnectsToServerSocket__1_.ic" NAME="EchoServerTest.testClientSocketConnectsToServerSocket (1) Coverage Results" MODIFIED="1652388118882" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

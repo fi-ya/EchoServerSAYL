@@ -16,8 +16,6 @@ public class StdOutServerLogger implements ServerLogger {
     public void listeningForClientInput() {
         System.out.println("[+] Listening for client server input");
     }
-
     public void closedClientConnection( Socket clientSocket ){ System.out.println("[+] Client socket closed on port number: " + clientSocket.getPort());}
-
     public void numberOfClientsConnected(int clientConnectionCounter){System.out.println("Number of clients connected: "+ clientConnectionCounter);}
 }

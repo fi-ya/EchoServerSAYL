@@ -1,7 +1,7 @@
 package echoserver.server;
 
-
 import java.net.Socket;
+
 
 public interface ServerLogger {
     void successfulConnection(Socket clientSocket);
@@ -10,6 +10,5 @@ public interface ServerLogger {
     void cannotListenForConnection(String portNumber);
     void listeningForClientInput();
     void closedClientConnection(Socket clientSocket);
-
     void numberOfClientsConnected(int clientConnectionCounter);
 }

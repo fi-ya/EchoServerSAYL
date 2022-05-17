@@ -16,13 +16,15 @@ public class IOSocketHandler implements Runnable {
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private final ServerLogger serverLogger;
-    private static int clientConnectionCounter;
+    public static int clientConnectionCounter;
     public IOSocketHandler(Socket clientSocket, ServerLogger serverLogger){
         this.clientSocket = clientSocket;
         this.serverLogger = serverLogger;
     }
     @Override
     public void run() {
+        clientConnectionCounter++;
+        serverLogger.numberOfClientsConnected(clientConnectionCounter);
         try {
             createClientSocketInputOutputStream(clientSocket, serverLogger);
         } catch (IOException e) {
@@ -35,11 +37,8 @@ public class IOSocketHandler implements Runnable {
     public static PrintWriter createClientOutputWriter(Socket clientSocket) throws IOException {
         return new PrintWriter(clientSocket.getOutputStream(), true);
     }
-    public static void createClientSocketInputOutputStream( Socket clientSocket, ServerLogger serverLogger) throws IOException{
-        clientConnectionCounter++;
-        serverLogger.numberOfClientsConnected(clientConnectionCounter);
+    public static void createClientSocketInputOutputStream(Socket clientSocket, ServerLogger serverLogger) throws IOException{
         try {
-
             BufferedReader clientInput = createClientInputReader(clientSocket);
             PrintWriter serverOutput = createClientOutputWriter(clientSocket);
             serverLogger.listeningForClientInput();
