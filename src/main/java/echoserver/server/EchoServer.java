@@ -11,13 +11,13 @@ public class EchoServer {
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private final ServerLogger serverLogger;
+    private final int PORT = 1234;
 
     public EchoServer(ServerLogger serverLogger){
         this.serverLogger = serverLogger;
     }
 
     public void start() throws IOException {
-        int PORT = 1234;
         StdOutServerLogger serverLogger = new StdOutServerLogger();
 
         openServerSocketConnection(PORT);
@@ -30,9 +30,9 @@ public class EchoServer {
     public void openServerSocketConnection(int PORT) throws IOException {
         try {
             serverSocket = new ServerSocket(PORT);
-            serverLogger.listeningForConnection(Integer.toString(PORT));
+            serverLogger.listeningForConnection(PORT);
         } catch(IOException ie){
-            serverLogger.cannotListenForConnection(Integer.toString(PORT));
+            serverLogger.cannotListenForConnection(PORT);
             System.exit(1);
         }
     }

@@ -14,7 +14,7 @@ import static org.mockito.Mockito.*;
 
 public class IOSocketHandlerTest {
     @Test
-    public void testInputOutputStreamMessages() throws IOException {
+    void testInputOutputStreamMessagesAndSocketClosesUsingByeMessage() throws IOException {
         BufferedReader mockClientInput = mock(BufferedReader.class);
         PrintWriter mockServerOutput = mock(PrintWriter.class);
         Socket mockClientSocket = mock(Socket.class);
@@ -25,18 +25,7 @@ public class IOSocketHandlerTest {
         verify(mockServerOutput).println("Server response: hello");
         verify(mockServerOutput).println("Server response: world! ");
         verify(mockServerOutput).println("Server response: bye");
-    }
-    @Test
-    public void testInputOutputStreamClosesWhenByeMessageSent() throws IOException {
-       BufferedReader mockClientInput = mock(BufferedReader.class);
-       PrintWriter mockServerOutput = mock(PrintWriter.class);
-       Socket mockClientSocket = mock(Socket.class);
-       when(mockClientInput.readLine()).thenReturn("bye");
-
-       IOSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput, mockClientSocket);
-
-       verify(mockServerOutput).println("Server response: bye");
-       verify(mockServerOutput, times(1)).close();
-       verify(mockClientInput, times(1)).close();
+        verify(mockServerOutput, times(1)).close();
+        verify(mockClientInput, times(1)).close();
     }
 }

@@ -15,7 +15,7 @@ import static org.mockito.Mockito.*;
 
 class EchoServerTest {
     @Test
-    public void testServerSocketOpensConnectionToPort() throws IOException {
+    void testServerSocketOpensConnectionToPort() throws IOException {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
         var echoServer = new EchoServer(serverLogger);
         final int mockPort = 5678;
@@ -26,13 +26,13 @@ class EchoServerTest {
         assertNotNull(serverSocketNew);
     }
     @Test
-    public void testServerSocketFailsToConnectToInvalidPort() throws IOException {
+    void testServerSocketFailsToConnectToInvalidPort() throws IOException {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
         var echoServer = new EchoServer(serverLogger);
         assertThrows(IllegalArgumentException.class, () -> echoServer.openServerSocketConnection(-1));
     }
     @Test
-    public void testClientSocketConnectsToServerSocket() throws IOException {
+    void testClientSocketConnectsToServerSocket() throws IOException {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
         var echoServer = new EchoServer(serverLogger);
         ServerSocket mockServerSocket = mock(ServerSocket.class);
@@ -45,7 +45,7 @@ class EchoServerTest {
         assertEquals(mockClientSocket, result);
     }
     @Test
-    public void testClientSocketFailedToConnectToServerSocket() throws IOException {
+    void testClientSocketFailedToConnectToServerSocket() throws IOException {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
         var echoServer = new EchoServer(serverLogger);
         ServerSocket mockServerSocket = mock(ServerSocket.class);
@@ -55,7 +55,7 @@ class EchoServerTest {
         assertNotNull(IllegalArgumentException.class);
     }
     @Test
-    public  void testClientSocketDisconnectedWhenClientSentExitMessage() throws IOException {
+    void testClientSocketDisconnectedWhenClientSentExitMessage() throws IOException {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
         var echoServer = new EchoServer(serverLogger);
         ServerSocket mockServerSocket = mock(ServerSocket.class);
