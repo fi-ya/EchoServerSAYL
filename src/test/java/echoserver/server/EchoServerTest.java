@@ -52,25 +52,6 @@ class EchoServerTest {
 
         verify(mockServerLogger, times(1)).failedConnection();
     }
-    @Test
-    void testClientSocketDisconnectedWhenClientSentExitMessage() throws IOException {
-        StdOutServerLogger serverLogger = new StdOutServerLogger();
-        var ioSocketHandler = new IOSocketHandler();
-        var echoServer = new EchoServer(serverLogger, ioSocketHandler);
-        ServerSocket mockServerSocket = mock(ServerSocket.class);
-        Socket mockClientSocket = mock(Socket.class);
-        when(mockServerSocket.accept()).thenReturn(mockClientSocket);
-
-        echoServer.connectClientSocket(mockServerSocket, serverLogger);
-        BufferedReader mockClientInput = mock(BufferedReader.class);
-        PrintWriter mockServerOutput = mock(PrintWriter.class);
-        when(mockClientInput.readLine()).thenReturn("bye");
-        ioSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput,mockClientSocket);
-
-        verify(mockServerOutput, times(1)).close();
-        verify(mockClientInput, times(1)).close();
-        verify(mockClientSocket, times(1)).close();
-    }
     EchoServer mockServerLoggerAndEchoServer() {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
         var ioSocketHandler = new IOSocketHandler();

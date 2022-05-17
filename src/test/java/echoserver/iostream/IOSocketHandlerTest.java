@@ -26,7 +26,5 @@ public class IOSocketHandlerTest {
         verify(mockServerOutput).println("Server response: hello");
         verify(mockServerOutput).println("Server response: world! ");
         verify(mockServerOutput).println("Server response: bye");
-        verify(mockServerOutput, times(1)).close();
-        verify(mockClientInput, times(1)).close();
     }
 }
