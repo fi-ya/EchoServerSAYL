@@ -1,5 +1,6 @@
 package echoserver.iostream;
 
+import echoserver.server.EchoServer;
 import echoserver.server.ServerLogger;
 
 import java.net.ServerSocket;
@@ -38,12 +39,12 @@ public class IOSocketHandler implements Runnable {
             BufferedReader clientInput = createClientInputReader(clientSocket);
             PrintWriter serverOutput = createClientOutputWriter(clientSocket);
             serverLogger.listeningForClientInput();
-            clientInputOutputLoop(clientInput, serverOutput, clientSocket);
+            clientInputOutputLoop(clientInput, serverOutput, clientSocket, serverLogger);
         } catch(IOException ie){
             System.out.println("Input & Output stream not created");
         }
     }
-    public static void clientInputOutputLoop(BufferedReader clientInput, PrintWriter serverOutput, Socket clientSocket) throws IOException {
+    public static void clientInputOutputLoop(BufferedReader clientInput, PrintWriter serverOutput, Socket clientSocket, ServerLogger serverLogger) throws IOException {
         String clientInputLine;
 
         while((clientInputLine = clientInput.readLine()) != null) {
@@ -57,5 +58,6 @@ public class IOSocketHandler implements Runnable {
         serverOutput.close();
         clientInput.close();
         clientSocket.close();
+        serverLogger.closedClientConnection(clientSocket);
     }
 }

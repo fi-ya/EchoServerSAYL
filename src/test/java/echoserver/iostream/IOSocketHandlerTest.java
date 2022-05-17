@@ -1,5 +1,6 @@
 package echoserver.iostream;
 
+import echoserver.server.StdOutServerLogger;
 import org.junit.jupiter.api.Test;
 import org.mockito.internal.stubbing.answers.ReturnsElementsOf;
 
@@ -15,12 +16,13 @@ import static org.mockito.Mockito.*;
 public class IOSocketHandlerTest {
     @Test
     public void testInputOutputStreamMessages() throws IOException {
+        StdOutServerLogger serverLogger = new StdOutServerLogger();
         BufferedReader mockClientInput = mock(BufferedReader.class);
         PrintWriter mockServerOutput = mock(PrintWriter.class);
         Socket mockClientSocket = mock(Socket.class);
         when(mockClientInput.readLine()).thenAnswer(new ReturnsElementsOf(List.of("hello", "world! ", "bye")));
 
-        IOSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput, mockClientSocket);
+        IOSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput, mockClientSocket, serverLogger);
 
         verify(mockServerOutput).println("Server response: hello");
         verify(mockServerOutput).println("Server response: world! ");
@@ -28,12 +30,13 @@ public class IOSocketHandlerTest {
     }
     @Test
     public void testInputOutputStreamClosesWhenByeMessageSent() throws IOException {
-       BufferedReader mockClientInput = mock(BufferedReader.class);
-       PrintWriter mockServerOutput = mock(PrintWriter.class);
-       Socket mockClientSocket = mock(Socket.class);
-       when(mockClientInput.readLine()).thenReturn("bye");
+        StdOutServerLogger serverLogger = new StdOutServerLogger();
+        BufferedReader mockClientInput = mock(BufferedReader.class);
+        PrintWriter mockServerOutput = mock(PrintWriter.class);
+        Socket mockClientSocket = mock(Socket.class);
+        when(mockClientInput.readLine()).thenReturn("bye");
 
-       IOSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput, mockClientSocket);
+       IOSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput, mockClientSocket, serverLogger);
 
        verify(mockServerOutput).println("Server response: bye");
        verify(mockServerOutput, times(1)).close();

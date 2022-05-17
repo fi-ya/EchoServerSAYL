@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="09b4f137-4a58-406b-8a35-01bef536cb3d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/echoserver/iostream/IOSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/echoserver/iostream/IOSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/echoserver/server/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/echoserver/server/EchoServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/echoserver/server/ServerLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/echoserver/server/ServerLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/echoserver/server/StdOutServerLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/echoserver/server/StdOutServerLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/echoserver/iostream/IOSocketHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/echoserver/iostream/IOSocketHandlerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/echoserver/server/EchoServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/echoserver/server/EchoServerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +105,7 @@
       <recent name="server" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.EchoServerTest.testMultipleClientsAbleToConnectToServer">
+  <component name="RunManager" selected="Gradle.EchoServerTest (1)">
     <configuration name="EchoServerTest (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -218,9 +223,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.EchoServerTest.testMultipleClientsAbleToConnectToServer" />
         <item itemvalue="Gradle.EchoServerTest (1)" />
         <item itemvalue="Gradle.IOSocketHandlerTest (1)" />
+        <item itemvalue="Gradle.EchoServerTest.testMultipleClientsAbleToConnectToServer" />
         <item itemvalue="Gradle.IOSocketHandlerTest.testInputOutputStreamMessages" />
         <item itemvalue="Gradle.EchoServerTest.testClientSocketDisconnectedWhenClientSentExitMessage" />
       </list>

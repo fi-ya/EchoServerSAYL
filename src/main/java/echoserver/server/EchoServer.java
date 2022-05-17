@@ -11,6 +11,7 @@ public class EchoServer {
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private final ServerLogger serverLogger;
+    public int clientConnectionCounter;
 
     public EchoServer(ServerLogger serverLogger){
         this.serverLogger = serverLogger;
@@ -24,6 +25,7 @@ public class EchoServer {
 
         while(!serverSocket.isClosed()){
             connectClientSocket(serverSocket, serverLogger);
+            serverLogger.successfulConnection(clientSocket);
             IOSocketHandler clientIOStream = new IOSocketHandler(clientSocket, serverLogger);
             new Thread(clientIOStream).start();
         }
@@ -44,7 +46,8 @@ public class EchoServer {
     public void connectClientSocket(ServerSocket serverSocket, ServerLogger serverLogger) throws IOException {
             try {
                 clientSocket = serverSocket.accept();
-                serverLogger.successfulConnection();
+                clientConnectionCounter++;
+//                serverLogger.successfulConnection(clientSocket);
             } catch (IOException ie) {
                 serverLogger.failedConnection();
             }
