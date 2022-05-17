@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="09b4f137-4a58-406b-8a35-01bef536cb3d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/echoserver/server/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/echoserver/server/EchoServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/echoserver/server/ServerLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/echoserver/server/ServerLogger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/echoserver/server/StdOutServerLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/echoserver/server/StdOutServerLogger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/echoserver/iostream/IOSocketHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/echoserver/iostream/IOSocketHandlerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/echoserver/server/EchoServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/echoserver/server/EchoServerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +100,7 @@
       <recent name="server" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.IOSocketHandlerTest.testInputOutputStreamMessagesAndSocketClosesUsingByeMessage">
+  <component name="RunManager" selected="Gradle.EchoServerTest">
     <configuration name="EchoServerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -128,29 +124,6 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="EchoServerTest.testClientSocketConnectsToServerSocket (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;echoserver.server.EchoServerTest.testClientSocketConnectsToServerSocket&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="EchoServerTest.testServerSocketFailsToConnectToInvalidPort" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -165,6 +138,29 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;echoserver.server.EchoServerTest.testServerSocketFailsToConnectToInvalidPort&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="EchoServerTest.testServerSocketOpensConnectionToPort" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;echoserver.server.EchoServerTest.testServerSocketOpensConnectionToPort&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -222,11 +218,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.IOSocketHandlerTest.testInputOutputStreamMessagesAndSocketClosesUsingByeMessage" />
         <item itemvalue="Gradle.EchoServerTest" />
-        <item itemvalue="Gradle.IOSocketHandlerTest" />
-        <item itemvalue="Gradle.EchoServerTest.testClientSocketConnectsToServerSocket (1)" />
         <item itemvalue="Gradle.EchoServerTest.testServerSocketFailsToConnectToInvalidPort" />
+        <item itemvalue="Gradle.EchoServerTest.testServerSocketOpensConnectionToPort" />
+        <item itemvalue="Gradle.IOSocketHandlerTest.testInputOutputStreamMessagesAndSocketClosesUsingByeMessage" />
+        <item itemvalue="Gradle.IOSocketHandlerTest" />
       </list>
     </recent_temporary>
   </component>

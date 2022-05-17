@@ -1,6 +1,7 @@
 package echoserver.server;
 
 import echoserver.iostream.IOSocketHandler;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
@@ -16,8 +17,7 @@ import static org.mockito.Mockito.*;
 class EchoServerTest {
     @Test
     void testServerSocketOpensConnectionToPort() throws IOException {
-        StdOutServerLogger serverLogger = new StdOutServerLogger();
-        var echoServer = new EchoServer(serverLogger);
+        var echoServer = mockServerLoggerAndEchoServer();
         final int mockPort = 5678;
 
         echoServer.openServerSocketConnection(mockPort);
@@ -27,8 +27,7 @@ class EchoServerTest {
     }
     @Test
     void testServerSocketFailsToConnectToInvalidPort() throws IOException {
-        StdOutServerLogger serverLogger = new StdOutServerLogger();
-        var echoServer = new EchoServer(serverLogger);
+        var echoServer = mockServerLoggerAndEchoServer();
         assertThrows(IllegalArgumentException.class, () -> echoServer.openServerSocketConnection(-1));
     }
     @Test
@@ -71,5 +70,10 @@ class EchoServerTest {
         verify(mockServerOutput, times(1)).close();
         verify(mockClientInput, times(1)).close();
         verify(mockClientSocket, times(1)).close();
+    }
+    EchoServer mockServerLoggerAndEchoServer() {
+        StdOutServerLogger serverLogger = new StdOutServerLogger();
+        var echoServer = new EchoServer(serverLogger);
+        return echoServer;
     }
 }
