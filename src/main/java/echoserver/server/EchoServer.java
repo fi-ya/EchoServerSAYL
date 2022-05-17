@@ -43,9 +43,9 @@ public class EchoServer {
     public void connectClientSocket(ServerSocket serverSocket, ServerLogger serverLogger) throws IOException {
             try {
                 clientSocket = serverSocket.accept();
-                serverLogger.successfulConnection();
+                serverLogger.successfulConnection(clientSocket);
             } catch (IOException ie) {
-                serverLogger.failedConnection();
+                serverLogger.failedConnection(clientSocket);
             }
     }
     public Socket getClientSocket() {
