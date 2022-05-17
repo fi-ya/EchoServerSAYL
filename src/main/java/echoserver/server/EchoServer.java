@@ -48,7 +48,4 @@ public class EchoServer {
                 serverLogger.failedConnection();
             }
     }
-    public Socket getClientSocket() {
-        return clientSocket;
-    }
 }

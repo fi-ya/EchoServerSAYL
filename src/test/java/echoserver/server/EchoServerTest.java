@@ -1,7 +1,6 @@
 package echoserver.server;
 
 import echoserver.iostream.IOSocketHandler;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
@@ -39,9 +38,7 @@ class EchoServerTest {
 
         when(mockServerSocket.accept()).thenReturn(mockClientSocket);
         echoServer.connectClientSocket(mockServerSocket, serverLogger);
-        Socket result = echoServer.getClientSocket();
-
-        assertEquals(mockClientSocket, result);
+        verify(mockServerSocket, times(1)).accept();
     }
     @Test
     void testClientSocketFailedToConnectToServerSocket() throws IOException {
