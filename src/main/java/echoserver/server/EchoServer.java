@@ -24,7 +24,8 @@ public class EchoServer {
 
         while(!serverSocket.isClosed()){
             connectClientSocket(serverSocket, serverLogger);
-            IOSocketHandler.createClientSocketInputOutputStream(clientSocket, serverLogger);
+            IOSocketHandler clientIOStream = new IOSocketHandler(clientSocket, serverLogger);
+            new Thread(clientIOStream).start();
         }
     }
     public void openServerSocketConnection(int PORT) throws IOException {
