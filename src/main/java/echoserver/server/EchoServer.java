@@ -20,8 +20,6 @@ public class EchoServer {
     }
 
     public void start() throws IOException {
-        StdOutServerLogger serverLogger = new StdOutServerLogger();
-
         openServerSocketConnection(PORT);
 
         while(!serverSocket.isClosed()){
@@ -43,11 +41,11 @@ public class EchoServer {
     }
 
     public void connectClientSocket(ServerSocket serverSocket, ServerLogger serverLogger) {
-            try {
-                clientSocket = serverSocket.accept();
-                serverLogger.successfulConnection();
-            } catch (IOException ie) {
-                serverLogger.failedConnection();
-            }
+        try {
+            clientSocket = serverSocket.accept();
+            serverLogger.successfulConnection();
+        } catch (IOException ie) {
+            serverLogger.failedConnection();
+        }
     }
 }

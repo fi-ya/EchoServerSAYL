@@ -14,7 +14,7 @@ import static org.mockito.Mockito.*;
 class EchoServerTest {
     @Test
     void serverSocketOpensConnectionToPort() throws IOException {
-        var echoServer = mockServerLoggerAndEchoServer();
+        var echoServer = createEchoServer();
         final int mockPort = 5678;
 
         echoServer.openServerSocketConnection(mockPort);
@@ -24,7 +24,7 @@ class EchoServerTest {
     }
     @Test
     void serverSocketFailsToConnectToInvalidPort() throws IOException {
-        var echoServer = mockServerLoggerAndEchoServer();
+        var echoServer = createEchoServer();
         assertThrows(IllegalArgumentException.class, () -> echoServer.openServerSocketConnection(-1));
     }
     @Test
@@ -50,7 +50,7 @@ class EchoServerTest {
 
         verify(mockServerLogger, times(1)).failedConnection();
     }
-    EchoServer mockServerLoggerAndEchoServer() {
+    EchoServer createEchoServer() {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
         var ioSocketHandler = new IOSocketHandler();
         var echoServer = new EchoServer(serverLogger, ioSocketHandler);
