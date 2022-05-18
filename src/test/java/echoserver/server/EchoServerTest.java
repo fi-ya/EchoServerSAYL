@@ -1,6 +1,9 @@
 package echoserver.server;
 
 import echoserver.iostream.IOSocketHandler;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
@@ -60,16 +63,17 @@ class EchoServerTest {
     }
     @Test
     public void testMultipleClientsAbleToConnectToServer() throws IOException {
-        MultipleClientsMock.mockTwoClients();
         var ioSocketHandler = new IOSocketHandler();
+        MultipleClientsMock.mockTwoClients(ioSocketHandler);
 
-        assertEquals(ioSocketHandler.clientConnectionCounter, 2);
+        assertEquals(2, ioSocketHandler.clientConnectionCounter);
     }
     @Test
     public void testMultipleClientsAbleToConnectAndClose() throws IOException {
-        var mockClientSocketOne = MultipleClientsMock.mockTwoClients();
-        var serverLogger = MultipleClientsMock.mockServerLogger();
         var ioSocketHandler = new IOSocketHandler();
+        MultipleClientsMock.mockTwoClients(ioSocketHandler);
+        var serverLogger = MultipleClientsMock.mockServerLogger();
+        Socket mockClientSocketOne = MultipleClientsMock.mockClientSocketOne;
         ioSocketHandler.handleClientSocket(mockClientSocketOne, serverLogger);
 
         BufferedReader mockClientInput = mock(BufferedReader.class);
@@ -78,6 +82,6 @@ class EchoServerTest {
         when(mockClientInput.readLine()).thenReturn("bye");
         ioSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput,mockClientSocketOne);
 
-        assertEquals(ioSocketHandler.clientConnectionCounter, 1);
+        assertEquals(1, ioSocketHandler.clientConnectionCounter);
     }
 }
