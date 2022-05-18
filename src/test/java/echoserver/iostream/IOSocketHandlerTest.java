@@ -15,13 +15,16 @@ import static org.mockito.Mockito.*;
 
 public class IOSocketHandlerTest {
     @Test
-    void inputOutputStreamMessagesAndSocketClosesUsingByeMessage() throws IOException {
+    void inputMessagesTriggerAccurateOutputStreamMessages() throws IOException {
+        StdOutServerLogger serverLogger = new StdOutServerLogger();
         var ioSocketHandler = new IOSocketHandler();
+        Socket mockClientSocket = mock(Socket.class);
+
         BufferedReader mockClientInput = mock(BufferedReader.class);
         PrintWriter mockServerOutput = mock(PrintWriter.class);
-        Socket mockClientSocket = mock(Socket.class);
         when(mockClientInput.readLine()).thenAnswer(new ReturnsElementsOf(List.of("hello", "world! ", "bye")));
 
+        ioSocketHandler.handleClientSocket(mockClientSocket, serverLogger);
         ioSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput, mockClientSocket);
 
         verify(mockServerOutput).println("Server response: hello");

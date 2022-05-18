@@ -61,8 +61,9 @@ class EchoServerTest {
     @Test
     public void testMultipleClientsAbleToConnectToServer() throws IOException {
         MultipleClientsMock.mockTwoClients();
+        var ioSocketHandler = new IOSocketHandler();
 
-        assertEquals(IOSocketHandler.clientConnectionCounter, 2);
+        assertEquals(ioSocketHandler.clientConnectionCounter, 2);
     }
     @Test
     public void testMultipleClientsAbleToConnectAndClose() throws IOException {
