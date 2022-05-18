@@ -19,15 +19,14 @@ public class EchoServer {
         this.ioSocketHandler = ioSocketHandler;
     }
 
-    public void start() throws IOException {
+    public void start() {
         openServerSocketConnection(PORT);
 
         while(!serverSocket.isClosed()){
             connectClientSocket(serverSocket, serverLogger);
             serverLogger.successfulConnection(clientSocket);
-            // IOSocketHandler clientIOStream = new IOSocketHandler(clientSocket, serverLogger);
-            new Thread(ioSocketHandler).start();
-
+            ioSocketHandler.handleClientSocket(clientSocket, serverLogger);
+           new Thread(ioSocketHandler).start();
         }
     }
     public void openServerSocketConnection(int PORT) {

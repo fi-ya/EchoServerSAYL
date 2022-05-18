@@ -12,12 +12,11 @@ import java.io.PrintWriter;
 
 
 public class IOSocketHandler implements Runnable {
-
-    private ServerSocket serverSocket;
     private Socket clientSocket;
-    private final ServerLogger serverLogger;
+    private ServerLogger serverLogger;
     public static int clientConnectionCounter;
-    public IOSocketHandler(Socket clientSocket, ServerLogger serverLogger){
+
+    public void handleClientSocket(Socket clientSocket, ServerLogger serverLogger) {
         this.clientSocket = clientSocket;
         this.serverLogger = serverLogger;
     }
