@@ -12,26 +12,26 @@ import static org.mockito.Mockito.*;
 public class MultipleClientsMock {
     public static Socket mockTwoClients() throws IOException{
         var serverLogger = mockServerLogger();
-        var echoServer = new EchoServer(serverLogger);
+        var ioSocketHandler = new IOSocketHandler();
+        var echoServer = new EchoServer(serverLogger, ioSocketHandler);
         ServerSocket mockServerSocket = mock(ServerSocket.class);
 
         Socket mockClientSocketOne = mock(Socket.class);
         when(mockServerSocket.accept()).thenReturn(mockClientSocketOne);
         echoServer.connectClientSocket(mockServerSocket, serverLogger);
-        IOSocketHandler clientIOStreamOne = new IOSocketHandler(mockClientSocketOne, serverLogger);
-        new Thread(clientIOStreamOne).start();
+        ioSocketHandler.handleClientSocket(mockClientSocketOne, serverLogger);
+        new Thread(ioSocketHandler).start();
 
         Socket mockClientSocketTwo = mock(Socket.class);
         when(mockServerSocket.accept()).thenReturn(mockClientSocketTwo);
         echoServer.connectClientSocket(mockServerSocket, serverLogger);
-        IOSocketHandler clientIOStreamTwo = new IOSocketHandler(mockClientSocketTwo, serverLogger);
-        new Thread(clientIOStreamTwo).start();
+        ioSocketHandler.handleClientSocket(mockClientSocketTwo, serverLogger);
+        new Thread(ioSocketHandler).start();
 
         return mockClientSocketOne;
     }
     public static ServerLogger mockServerLogger() {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
-
         return serverLogger;
     }
 }

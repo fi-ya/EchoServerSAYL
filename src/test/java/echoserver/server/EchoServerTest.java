@@ -3,7 +3,9 @@ package echoserver.server;
 import echoserver.iostream.IOSocketHandler;
 import org.junit.jupiter.api.Test;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -66,13 +68,15 @@ class EchoServerTest {
     public void testMultipleClientsAbleToConnectAndClose() throws IOException {
         var mockClientSocketOne = MultipleClientsMock.mockTwoClients();
         var serverLogger = MultipleClientsMock.mockServerLogger();
+        var ioSocketHandler = new IOSocketHandler();
+        ioSocketHandler.handleClientSocket(mockClientSocketOne, serverLogger);
 
         BufferedReader mockClientInput = mock(BufferedReader.class);
         PrintWriter mockServerOutput = mock(PrintWriter.class);
-        when(mockClientInput.readLine()).thenReturn("bye");
-        IOSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput,mockClientSocketOne,serverLogger);
 
-        verify(mockClientSocketOne, times(1)).close();
-        assertEquals(IOSocketHandler.clientConnectionCounter, 1);
+        when(mockClientInput.readLine()).thenReturn("bye");
+        ioSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput,mockClientSocketOne);
+
+        assertEquals(ioSocketHandler.clientConnectionCounter, 1);
     }
 }

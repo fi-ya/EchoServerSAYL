@@ -18,7 +18,6 @@ public class EchoServer {
         this.serverLogger = serverLogger;
         this.ioSocketHandler = ioSocketHandler;
     }
-
     public void start() {
         openServerSocketConnection(PORT);
 
@@ -26,7 +25,7 @@ public class EchoServer {
             connectClientSocket(serverSocket, serverLogger);
             serverLogger.successfulConnection(clientSocket);
             ioSocketHandler.handleClientSocket(clientSocket, serverLogger);
-           new Thread(ioSocketHandler).start();
+            new Thread(ioSocketHandler).start();
         }
     }
     public void openServerSocketConnection(int PORT) {
