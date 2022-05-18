@@ -11,30 +11,31 @@ public class EchoServer {
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private final ServerLogger serverLogger;
+    private final int PORT = 1234;
+    private IOSocketHandler ioSocketHandler;
 
-    public EchoServer(ServerLogger serverLogger){
+    public EchoServer(ServerLogger serverLogger, IOSocketHandler ioSocketHandler){
         this.serverLogger = serverLogger;
+        this.ioSocketHandler = ioSocketHandler;
     }
 
     public void start() throws IOException {
-        int PORT = 1234;
-        StdOutServerLogger serverLogger = new StdOutServerLogger();
-
         openServerSocketConnection(PORT);
 
         while(!serverSocket.isClosed()){
             connectClientSocket(serverSocket, serverLogger);
             serverLogger.successfulConnection(clientSocket);
-            IOSocketHandler clientIOStream = new IOSocketHandler(clientSocket, serverLogger);
-            new Thread(clientIOStream).start();
+            // IOSocketHandler clientIOStream = new IOSocketHandler(clientSocket, serverLogger);
+            new Thread(ioSocketHandler).start();
+
         }
     }
-    public void openServerSocketConnection(int PORT) throws IOException {
+    public void openServerSocketConnection(int PORT) {
         try {
             serverSocket = new ServerSocket(PORT);
-            serverLogger.listeningForConnection(Integer.toString(PORT));
+            serverLogger.listeningForConnection(PORT);
         } catch(IOException ie){
-            serverLogger.cannotListenForConnection(Integer.toString(PORT));
+            serverLogger.cannotListenForConnection(PORT);
             System.exit(1);
         }
     }
@@ -42,14 +43,11 @@ public class EchoServer {
         return serverSocket;
     }
 
-    public void connectClientSocket(ServerSocket serverSocket, ServerLogger serverLogger) throws IOException {
-            try {
-                clientSocket = serverSocket.accept();
-            } catch (IOException ie) {
-                serverLogger.failedConnection();
-            }
-    }
-    public Socket getClientSocket() {
-        return clientSocket;
+    public void connectClientSocket(ServerSocket serverSocket, ServerLogger serverLogger) {
+        try {
+            clientSocket = serverSocket.accept();
+        } catch (IOException ie) {
+            serverLogger.failedConnection();
+        }
     }
 }

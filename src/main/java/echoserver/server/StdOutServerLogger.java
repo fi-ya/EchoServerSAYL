@@ -7,10 +7,10 @@ public class StdOutServerLogger implements ServerLogger {
     public void failedConnection() {
         System.out.println("[-] Connection unsuccessful: Server failed to accept client connection");
     }
-    public void listeningForConnection(String portNumber) {
+    public void listeningForConnection(int portNumber) {
         System.out.println("[+] Listening for client connection on server socket port number: " + portNumber);
     }
-    public void cannotListenForConnection(String portNumber) {
+    public void cannotListenForConnection(int portNumber) {
         System.out.println( "[-] Cannot listen on server socket port number: "  + portNumber);
     }
     public void listeningForClientInput() {
