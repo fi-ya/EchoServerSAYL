@@ -23,9 +23,11 @@ Choose to open build/run the server socket either with an IDE or in the terminal
 - Terminal: cd into project folder and run the command `./gradlew run`
 7. Once build complete, you should see a message in the terminal `[+] Listening for connection on port 1234`
 8. Check to see if you have [netcat](https://brewinstall.org/install-netcat-on-mac-with-brew/). To install run `brew install netcat`
-9. Start client connection in a terminal by running `nc localhost 1234`
+9. Start a client connection by running the following command in the terminal `nc localhost 1234`
 10. Server console should show connection made `[+] Listening for client server input`
 11. You can now send messages in client terminal and see messaged echoed back from server.
+
+_Note:_ To create multiple clients repeat step 9.
 
 ## Close Project
 Close the server socket:
@@ -44,8 +46,8 @@ You can find all tests in `src/test/java` and run the test suite using either of
 A user should be able to interact with the echo server as follows:
 
 - [x] When a client sends a message to the server, the server sends a response back to the client containing the original message. 
-- [] A client can send multiple messages to the server and get the echoed response back each time.
-- [] Multiple clients can send messages to server and get back their proper responses.
+- [x] A client can send multiple messages to the server and get the echoed response back each time.
+- [x] Multiple clients can send messages to server and get back their proper responses.
 
 ## Implementation Requirements
 - [x] The server should establish a socket connection with the client using a low-level socket library. The goal of this exercise is to work with sockets directly.

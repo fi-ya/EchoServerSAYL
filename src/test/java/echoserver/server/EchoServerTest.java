@@ -1,9 +1,6 @@
 package echoserver.server;
 
 import echoserver.iostream.IOSocketHandler;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
@@ -30,6 +27,7 @@ class EchoServerTest {
     @Test
     void serverSocketFailsToConnectToInvalidPort() throws IOException {
         var echoServer = createEchoServer();
+
         assertThrows(IllegalArgumentException.class, () -> echoServer.openServerSocketConnection(-1));
     }
     @Test
@@ -42,6 +40,7 @@ class EchoServerTest {
 
         when(mockServerSocket.accept()).thenReturn(mockClientSocket);
         echoServer.connectClientSocket(mockServerSocket, serverLogger);
+
         verify(mockServerSocket, times(1)).accept();
     }
     @Test
@@ -50,12 +49,13 @@ class EchoServerTest {
         var ioSocketHandler = new IOSocketHandler();
         var echoServer = new EchoServer(mockServerLogger, ioSocketHandler);
         ServerSocket mockServerSocket = mock(ServerSocket.class);
+
         when(mockServerSocket.accept()).thenThrow(IOException.class);
         echoServer.connectClientSocket(mockServerSocket, mockServerLogger);
 
         verify(mockServerLogger, times(1)).failedConnection();
     }
-    EchoServer createEchoServer() {
+    private EchoServer createEchoServer() {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
         var ioSocketHandler = new IOSocketHandler();
         return new EchoServer(serverLogger, ioSocketHandler);
@@ -72,6 +72,7 @@ class EchoServerTest {
     public void testMultipleClientsAbleToConnectAndClose() throws IOException {
         var ioSocketHandler = new IOSocketHandler();
         MultipleClientsMock.mockTwoClients(ioSocketHandler);
+
         var serverLogger = MultipleClientsMock.mockServerLogger();
         Socket mockClientSocketOne = MultipleClientsMock.mockClientSocketOne;
         ioSocketHandler.handleClientSocket(mockClientSocketOne, serverLogger);
