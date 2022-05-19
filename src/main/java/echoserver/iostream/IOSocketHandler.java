@@ -49,6 +49,8 @@ public class IOSocketHandler implements Runnable {
     public void clientInputOutputLoop(BufferedReader clientInput, PrintWriter clientOutput, Socket clientSocket) throws IOException {
         String clientInputLine;
 
+        clientOutput.println("Enter a message + enter. Wait for server to return message. If you want to exit enter 'bye'. " );
+
         while((clientInputLine = clientInput.readLine()) != null) {
             System.out.println("Server will echo this back to the client: " + clientInputLine);
             clientOutput.println("Server response: " + clientInputLine);
