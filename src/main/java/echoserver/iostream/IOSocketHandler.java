@@ -49,7 +49,7 @@ public class IOSocketHandler implements Runnable {
     public void clientInputOutputLoop(BufferedReader clientInput, PrintWriter clientOutput, Socket clientSocket) throws IOException {
         String clientInputLine;
 
-        clientOutput.println("Enter a message + enter. Wait for server to return message. If you want to exit enter 'bye'. " );
+        clientOutput.println("🌻🌷-+- Welcome to Safia's & Yuyi's Echo Server! -+-🌷🌻 \n+️ Type a message and press ↵ to see the message echoed back \n* To exit the programme, type 'bye' and press ↵ \n--------------------------------------------------------" );
 
         while((clientInputLine = clientInput.readLine()) != null) {
             System.out.println("Server will echo this back to the client: " + clientInputLine);
