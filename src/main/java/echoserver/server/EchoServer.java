@@ -6,13 +6,12 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-
 public class EchoServer {
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private final ServerLogger serverLogger;
     private final int PORT = 1234;
-    private IOSocketHandler ioSocketHandler;
+    private final IOSocketHandler ioSocketHandler;
 
     public EchoServer(ServerLogger serverLogger, IOSocketHandler ioSocketHandler){
         this.serverLogger = serverLogger;

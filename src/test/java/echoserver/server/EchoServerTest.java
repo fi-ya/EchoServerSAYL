@@ -58,15 +58,15 @@ class EchoServerTest {
     EchoServer createEchoServer() {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
         var ioSocketHandler = new IOSocketHandler();
-        var echoServer = new EchoServer(serverLogger, ioSocketHandler);
-        return echoServer;
+        return new EchoServer(serverLogger, ioSocketHandler);
     }
     @Test
     public void testMultipleClientsAbleToConnectToServer() throws IOException {
+        StdOutServerLogger serverLogger = new StdOutServerLogger();
         var ioSocketHandler = new IOSocketHandler();
-        MultipleClientsMock.mockTwoClients(ioSocketHandler);
+        ServerSocket mockServerSocket = MultipleClientsMock.mockTwoClients(ioSocketHandler);
 
-        assertEquals(2, ioSocketHandler.clientConnectionCounter);
+        verify(mockServerSocket, times (2)).accept();
     }
     @Test
     public void testMultipleClientsAbleToConnectAndClose() throws IOException {

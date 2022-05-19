@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 public class IOSocketHandler implements Runnable {
     private Socket clientSocket;
     private ServerLogger serverLogger;
-    public static int clientConnectionCounter;
+    public int clientConnectionCounter;
 
     public void handleClientSocket(Socket clientSocket, ServerLogger serverLogger) {
         this.clientSocket = clientSocket;
