@@ -56,6 +56,7 @@ public class IOSocketHandler implements Runnable {
             clientOutput.println("Server response: " + clientInputLine);
 
             if (clientInputLine.equals(("bye"))) {
+                clientOutput.println("🌻🌷-+- Goodbye, please visit us soon! -+-🌷🌻\n---------------------------------------------" );
                 break;
             }
         }
