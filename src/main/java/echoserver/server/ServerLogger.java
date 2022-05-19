@@ -4,11 +4,11 @@ import java.net.Socket;
 
 
 public interface ServerLogger {
-    void successfulConnection(Socket clientSocket);
+    void successfulConnection(int clientPortNumber);
     void failedConnection();
     void listeningForConnection(int portNumber);
     void cannotListenForConnection(int portNumber);
     void listeningForClientInput();
-    void closedClientConnection(Socket clientSocket);
+    void closedClientConnection(int clientPortNumber);
     void numberOfClientsConnected(int clientConnectionCounter);
 }

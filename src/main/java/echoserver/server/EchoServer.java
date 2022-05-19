@@ -22,7 +22,7 @@ public class EchoServer {
 
         while(!serverSocket.isClosed()){
             connectClientSocket(serverSocket, serverLogger);
-            serverLogger.successfulConnection(clientSocket);
+            serverLogger.successfulConnection(clientSocket.getPort());
             ioSocketHandler.handleClientSocket(clientSocket, serverLogger);
             new Thread(ioSocketHandler).start();
         }

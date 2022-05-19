@@ -66,7 +66,7 @@ class EchoServerTest {
         var ioSocketHandler = new IOSocketHandler();
         ServerSocket mockServerSocket = MultipleClientsMock.mockTwoClients(ioSocketHandler);
 
-        verify(mockServerSocket, times (2)).accept();
+        verify(mockServerSocket, times(2)).accept();
     }
     @Test
     public void testMultipleClientsAbleToConnectAndClose() throws IOException {

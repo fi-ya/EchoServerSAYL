@@ -1,8 +1,8 @@
 package echoserver.server;
 import java.net.Socket;
 public class StdOutServerLogger implements ServerLogger {
-    public void successfulConnection(Socket clientSocket) {
-        System.out.println("[+] Connection successful: New client socket port number is " + clientSocket.getPort());
+    public void successfulConnection(int clientPortNumber) {
+        System.out.println("[+] Connection successful: New client socket port number is " + clientPortNumber);
     }
     public void failedConnection() {
         System.out.println("[-] Connection unsuccessful: Server failed to accept client connection");
@@ -16,6 +16,6 @@ public class StdOutServerLogger implements ServerLogger {
     public void listeningForClientInput() {
         System.out.println("[+] Listening for client server input");
     }
-    public void closedClientConnection( Socket clientSocket ){ System.out.println("[+] Client socket closed on port number: " + clientSocket.getPort());}
+    public void closedClientConnection(int clientPortNumber){ System.out.println("[+] Client socket closed on port number: " + clientPortNumber);}
     public void numberOfClientsConnected(int clientConnectionCounter){System.out.println("Number of clients connected: "+ clientConnectionCounter);}
 }

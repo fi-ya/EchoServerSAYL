@@ -61,7 +61,7 @@ public class IOSocketHandler implements Runnable {
             }
         }
         clientConnectionCounter--;
-        serverLogger.closedClientConnection(clientSocket);
+        serverLogger.closedClientConnection(clientSocket.getPort());
         serverLogger.numberOfClientsConnected(clientConnectionCounter);
     }
 }
