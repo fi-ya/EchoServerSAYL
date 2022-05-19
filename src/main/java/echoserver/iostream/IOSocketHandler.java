@@ -36,21 +36,22 @@ public class IOSocketHandler implements Runnable {
     }
     public void createClientSocketInputOutputStream(Socket clientSocket, ServerLogger serverLogger) throws IOException{
         try (var clientInput = createClientInputReader(clientSocket);
-             var serverOutput = createClientOutputWriter(clientSocket);
+             var clientOutput = createClientOutputWriter(clientSocket);
         ) {
             serverLogger.listeningForClientInput();
-            clientInputOutputLoop(clientInput, serverOutput, clientSocket);
+            clientInputOutputLoop(clientInput, clientOutput, clientSocket);
+
         } catch(IOException ie){
             System.out.println("Input & Output stream not created");
         }
         clientSocket.close();
     }
-    public void clientInputOutputLoop(BufferedReader clientInput, PrintWriter serverOutput, Socket clientSocket) throws IOException {
+    public void clientInputOutputLoop(BufferedReader clientInput, PrintWriter clientOutput, Socket clientSocket) throws IOException {
         String clientInputLine;
 
         while((clientInputLine = clientInput.readLine()) != null) {
             System.out.println("Server will echo this back to the client: " + clientInputLine);
-            serverOutput.println("Server response: " + clientInputLine);
+            clientOutput.println("Server response: " + clientInputLine);
 
             if (clientInputLine.equals(("bye"))) {
                 break;

@@ -21,14 +21,14 @@ public class IOSocketHandlerTest {
         Socket mockClientSocket = mock(Socket.class);
 
         BufferedReader mockClientInput = mock(BufferedReader.class);
-        PrintWriter mockServerOutput = mock(PrintWriter.class);
+        PrintWriter mockclientOutput = mock(PrintWriter.class);
         when(mockClientInput.readLine()).thenAnswer(new ReturnsElementsOf(List.of("hello", "world! ", "bye")));
 
         ioSocketHandler.handleClientSocket(mockClientSocket, serverLogger);
-        ioSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput, mockClientSocket);
+        ioSocketHandler.clientInputOutputLoop(mockClientInput, mockclientOutput, mockClientSocket);
 
-        verify(mockServerOutput).println("Server response: hello");
-        verify(mockServerOutput).println("Server response: world! ");
-        verify(mockServerOutput).println("Server response: bye");
+        verify(mockclientOutput).println("Server response: hello");
+        verify(mockclientOutput).println("Server response: world! ");
+        verify(mockclientOutput).println("Server response: bye");
     }
 }

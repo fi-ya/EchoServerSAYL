@@ -78,10 +78,10 @@ class EchoServerTest {
         ioSocketHandler.handleClientSocket(mockClientSocketOne, serverLogger);
 
         BufferedReader mockClientInput = mock(BufferedReader.class);
-        PrintWriter mockServerOutput = mock(PrintWriter.class);
+        PrintWriter mockclientOutput = mock(PrintWriter.class);
 
         when(mockClientInput.readLine()).thenReturn("bye");
-        ioSocketHandler.clientInputOutputLoop(mockClientInput, mockServerOutput,mockClientSocketOne);
+        ioSocketHandler.clientInputOutputLoop(mockClientInput, mockclientOutput,mockClientSocketOne);
 
         assertEquals(1, ioSocketHandler.clientConnectionCounter);
     }
