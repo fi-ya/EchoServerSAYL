@@ -5,6 +5,8 @@ import echoserver.iostream.IOSocketHandler;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 public class EchoServer {
@@ -26,7 +28,8 @@ public class EchoServer {
             Socket clientSocket = connectClientSocket(serverSocket, serverLogger);
             serverLogger.successfulConnection(clientSocket.getPort());
             ioSocketHandler.handleClientSocket(clientSocket, serverLogger);
-            new Thread(ioSocketHandler).start();
+            ExecutorService es = Executors.newSingleThreadExecutor();
+            es.execute(ioSocketHandler);
         }
     }
 
@@ -45,8 +48,9 @@ public class EchoServer {
         try {
             clientSocket = serverSocket.accept();
             if (clientSocketStatus) {
-                clientSocket.close();
                 clientSocketStatus = false;
+                ExecutorService es = Executors.newSingleThreadExecutor();
+                es.shutdownNow();
             };
         } catch (IOException ie) {
             serverLogger.failedConnection();
