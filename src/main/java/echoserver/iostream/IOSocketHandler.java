@@ -18,6 +18,7 @@ public class IOSocketHandler implements Runnable {
         this.clientSocket = clientSocket;
         this.serverLogger = serverLogger;
     }
+
     @Override
     public void run() {
         clientConnectionCounter++;
@@ -28,12 +29,7 @@ public class IOSocketHandler implements Runnable {
             throw new RuntimeException(e);
         }
     }
-    private BufferedReader createClientInputReader(Socket clientSocket) throws IOException {
-        return new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-    }
-    private PrintWriter createClientOutputWriter(Socket clientSocket) throws IOException {
-        return new PrintWriter(clientSocket.getOutputStream(), true);
-    }
+
     private void createClientSocketInputOutputStream(Socket clientSocket, ServerLogger serverLogger) throws IOException{
         try (var clientInput = createClientInputReader(clientSocket);
              var clientOutput = createClientOutputWriter(clientSocket);
@@ -46,6 +42,15 @@ public class IOSocketHandler implements Runnable {
         }
         clientSocket.close();
     }
+
+    private BufferedReader createClientInputReader(Socket clientSocket) throws IOException {
+        return new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+    }
+
+    private PrintWriter createClientOutputWriter(Socket clientSocket) throws IOException {
+        return new PrintWriter(clientSocket.getOutputStream(), true);
+    }
+
     public void clientInputOutputLoop(BufferedReader clientInput, PrintWriter clientOutput, Socket clientSocket) throws IOException {
         String clientInputLine;
 

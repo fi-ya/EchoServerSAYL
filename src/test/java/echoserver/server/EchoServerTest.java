@@ -24,12 +24,14 @@ class EchoServerTest {
 
         assertNotNull(serverSocketNew);
     }
+
     @Test
     void serverSocketFailsToConnectToInvalidPort() throws IOException {
         var echoServer = createEchoServer();
 
         assertThrows(IllegalArgumentException.class, () -> echoServer.openServerSocketConnection(-1));
     }
+
     @Test
     void clientSocketConnectsToServerSocket() throws IOException {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
@@ -43,6 +45,7 @@ class EchoServerTest {
 
         verify(mockServerSocket, times(1)).accept();
     }
+
     @Test
     void clientSocketFailedToConnectToServerSocket() throws IOException {
         StdOutServerLogger mockServerLogger = mock(StdOutServerLogger.class);
@@ -55,11 +58,13 @@ class EchoServerTest {
 
         verify(mockServerLogger, times(1)).failedConnection();
     }
+
     private EchoServer createEchoServer() {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
         var ioSocketHandler = new IOSocketHandler();
         return new EchoServer(serverLogger, ioSocketHandler);
     }
+
     @Test
     public void testMultipleClientsAbleToConnectToServer() throws IOException {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
@@ -68,6 +73,7 @@ class EchoServerTest {
 
         verify(mockServerSocket, times(2)).accept();
     }
+
     @Test
     public void testMultipleClientsAbleToConnectAndClose() throws IOException {
         var ioSocketHandler = new IOSocketHandler();
