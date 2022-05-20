@@ -12,6 +12,7 @@ public class EchoServer {
     private final ServerLogger serverLogger;
     private final int PORT = 1234;
     private final IOSocketHandler ioSocketHandler;
+    private static boolean clientSocketStatus = false;
 
     public EchoServer(ServerLogger serverLogger, IOSocketHandler ioSocketHandler){
         this.serverLogger = serverLogger;
@@ -43,6 +44,10 @@ public class EchoServer {
         Socket clientSocket = null;
         try {
             clientSocket = serverSocket.accept();
+            if (clientSocketStatus) {
+                clientSocket.close();
+                clientSocketStatus = false;
+            };
         } catch (IOException ie) {
             serverLogger.failedConnection();
         }
@@ -51,5 +56,8 @@ public class EchoServer {
 
     public ServerSocket getServerSocket() {
         return serverSocket;
+    }
+    public static boolean handleClientSocketStatus(boolean status) {
+        return clientSocketStatus = true;
     }
 }

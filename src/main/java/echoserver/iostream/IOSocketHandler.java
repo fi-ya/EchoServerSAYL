@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import static echoserver.server.EchoServer.handleClientSocketStatus;
 
 
 public class IOSocketHandler implements Runnable {
@@ -40,7 +41,7 @@ public class IOSocketHandler implements Runnable {
         } catch(IOException ie){
             System.out.println("Input & Output stream not created");
         }
-        clientSocket.close();
+        handleClientSocketStatus(true);
     }
 
     private BufferedReader createClientInputReader(Socket clientSocket) throws IOException {
