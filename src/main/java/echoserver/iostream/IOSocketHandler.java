@@ -34,7 +34,7 @@ public class IOSocketHandler implements Runnable {
     private PrintWriter createClientOutputWriter(Socket clientSocket) throws IOException {
         return new PrintWriter(clientSocket.getOutputStream(), true);
     }
-    public void createClientSocketInputOutputStream(Socket clientSocket, ServerLogger serverLogger) throws IOException{
+    private void createClientSocketInputOutputStream(Socket clientSocket, ServerLogger serverLogger) throws IOException{
         try (var clientInput = createClientInputReader(clientSocket);
              var clientOutput = createClientOutputWriter(clientSocket);
         ) {
