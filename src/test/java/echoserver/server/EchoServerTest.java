@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import static echoserver.server.MockServerLogger.mockServerLogger;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -75,11 +76,11 @@ class EchoServerTest {
     }
 
     @Test
-    public void testMultipleClientsAbleToConnectAndClose() throws IOException {
+    public void testMultipleClientsAbleToConnectAndClose() throws Exception {
         var ioSocketHandler = new IOSocketHandler();
         MultipleClientsMock.mockTwoClients(ioSocketHandler);
 
-        var serverLogger = MultipleClientsMock.mockServerLogger();
+        var serverLogger = mockServerLogger();
         Socket mockClientSocketOne = MultipleClientsMock.mockClientSocketOne;
         ioSocketHandler.handleClientSocket(mockClientSocketOne, serverLogger);
 

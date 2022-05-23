@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import static echoserver.server.MockServerLogger.mockServerLogger;
 import static org.mockito.Mockito.*;
 
 
@@ -33,9 +34,5 @@ public class MultipleClientsMock {
         es.execute(ioSocketHandler);
 
         return mockServerSocket;
-    }
-
-    public static ServerLogger mockServerLogger() {
-        return new StdOutServerLogger();
     }
 }

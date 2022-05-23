@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.internal.stubbing.answers.ReturnsElementsOf;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.List;
@@ -15,7 +14,7 @@ import static org.mockito.Mockito.*;
 
 public class IOSocketHandlerTest {
     @Test
-    void inputMessagesTriggerAccurateOutputStreamMessages() throws IOException {
+    void inputMessagesTriggerAccurateOutputStreamMessages() throws Exception {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
         var ioSocketHandler = new IOSocketHandler();
         Socket mockClientSocket = mock(Socket.class);

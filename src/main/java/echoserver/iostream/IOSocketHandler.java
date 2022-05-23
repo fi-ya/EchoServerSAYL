@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+
+import static echoserver.iostream.ReadTextAsString.readFileAsString;
 import static echoserver.server.EchoServer.handleClientSocketStatus;
 
 
@@ -38,7 +40,7 @@ public class IOSocketHandler implements Runnable {
             serverLogger.listeningForClientInput();
             clientInputOutputLoop(clientInput, clientOutput, clientSocket);
 
-        } catch(IOException ie){
+        } catch(Exception ie){
             System.out.println("Input & Output stream not created");
         }
         handleClientSocketStatus(true);
@@ -52,10 +54,11 @@ public class IOSocketHandler implements Runnable {
         return new PrintWriter(clientSocket.getOutputStream(), true);
     }
 
-    public void clientInputOutputLoop(BufferedReader clientInput, PrintWriter clientOutput, Socket clientSocket) throws IOException {
+    public void clientInputOutputLoop(BufferedReader clientInput, PrintWriter clientOutput, Socket clientSocket) throws Exception {
         String clientInputLine;
 
-        clientOutput.println("🌻🌷-+- Welcome to Safia's & Yuyi's Echo Server! -+-🌷🌻 \n+️ Type a message and press ↵ to see the message echoed back \n* To exit the programme, type 'bye' and press ↵ \n--------------------------------------------------------" );
+        String data = readFileAsString("src/main/java/resources/welcome.txt");
+        clientOutput.println(data);
 
         while((clientInputLine = clientInput.readLine()) != null) {
             System.out.println("Server will echo this back to the client: " + clientInputLine);
@@ -71,3 +74,5 @@ public class IOSocketHandler implements Runnable {
         serverLogger.numberOfClientsConnected(clientConnectionCounter);
     }
 }
+
+

@@ -1,0 +1,9 @@
+
+-------------------------------------------------------------
+🌻🌷-+- Welcome to Safia's & Yuyi's Echo Server! -+-🌷🌻
+-------------------------------------------------------------
+
+* Type a message and press ↵ to see the message echoed back
+* To exit the programme, type 'bye' and press ↵
+
+-------------------------------------------------------------
