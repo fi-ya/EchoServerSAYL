@@ -1,3 +1,4 @@
+[![fi-ya](https://circleci.com/gh/fi-ya/EchoServerSAYL.svg?style=shield)](https://circleci.com/docs/)
 # Echo Server
 This project is a results of a joint collaboration effort between [Safia](https://github.com/fi-ya) and [Yuyi](https://github.com/yuyi365).
 It was built following [these specifications](https://github.com/8thlight/apprenticeship_syllabus/blob/master/shared_resources/projects/http_server/01_beginner/echo_server.md).
