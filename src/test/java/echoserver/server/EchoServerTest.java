@@ -3,10 +3,13 @@ package echoserver.server;
 import echoserver.iostream.IOSocketHandler;
 import org.junit.jupiter.api.Test;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import static echoserver.server.MockServerLogger.mockServerLogger;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -22,11 +25,14 @@ class EchoServerTest {
 
         assertNotNull(serverSocketNew);
     }
+
     @Test
     void serverSocketFailsToConnectToInvalidPort() throws IOException {
         var echoServer = createEchoServer();
+
         assertThrows(IllegalArgumentException.class, () -> echoServer.openServerSocketConnection(-1));
     }
+
     @Test
     void clientSocketConnectsToServerSocket() throws IOException {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
@@ -37,23 +43,53 @@ class EchoServerTest {
 
         when(mockServerSocket.accept()).thenReturn(mockClientSocket);
         echoServer.connectClientSocket(mockServerSocket, serverLogger);
+
         verify(mockServerSocket, times(1)).accept();
     }
+
     @Test
     void clientSocketFailedToConnectToServerSocket() throws IOException {
         StdOutServerLogger mockServerLogger = mock(StdOutServerLogger.class);
         var ioSocketHandler = new IOSocketHandler();
         var echoServer = new EchoServer(mockServerLogger, ioSocketHandler);
         ServerSocket mockServerSocket = mock(ServerSocket.class);
+
         when(mockServerSocket.accept()).thenThrow(IOException.class);
         echoServer.connectClientSocket(mockServerSocket, mockServerLogger);
 
         verify(mockServerLogger, times(1)).failedConnection();
     }
-    EchoServer createEchoServer() {
+
+    private EchoServer createEchoServer() {
         StdOutServerLogger serverLogger = new StdOutServerLogger();
         var ioSocketHandler = new IOSocketHandler();
-        var echoServer = new EchoServer(serverLogger, ioSocketHandler);
-        return echoServer;
+        return new EchoServer(serverLogger, ioSocketHandler);
+    }
+
+    @Test
+    public void testMultipleClientsAbleToConnectToServer() throws IOException {
+        StdOutServerLogger serverLogger = new StdOutServerLogger();
+        var ioSocketHandler = new IOSocketHandler();
+        ServerSocket mockServerSocket = MultipleClientsMock.mockTwoClients(ioSocketHandler);
+
+        verify(mockServerSocket, times(2)).accept();
+    }
+
+    @Test
+    public void testMultipleClientsAbleToConnectAndClose() throws Exception {
+        var ioSocketHandler = new IOSocketHandler();
+        MultipleClientsMock.mockTwoClients(ioSocketHandler);
+
+        var serverLogger = mockServerLogger();
+        Socket mockClientSocketOne = MultipleClientsMock.mockClientSocketOne;
+        ioSocketHandler.handleClientSocket(mockClientSocketOne, serverLogger);
+
+        BufferedReader mockClientInput = mock(BufferedReader.class);
+        PrintWriter mockClientOutput = mock(PrintWriter.class);
+
+        when(mockClientInput.readLine()).thenReturn("bye");
+        ioSocketHandler.clientInputOutputLoop(mockClientInput, mockClientOutput,mockClientSocketOne);
+
+        assertEquals(1, ioSocketHandler.clientConnectionCounter);
     }
 }

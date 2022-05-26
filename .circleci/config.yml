@@ -1,0 +1,19 @@
+version: 2.1
+
+jobs:
+  build-test:
+    docker:
+      - image: cimg/openjdk:17.0.3
+    steps:
+      - checkout
+      - run:
+          name: Run build
+          command: ./gradlew build
+      - run:
+          name: Run test
+          command: ./gradlew test
+
+workflows:
+  build-test-workflow:
+    jobs:
+      - build-test
